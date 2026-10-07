@@ -18,6 +18,7 @@
                     colors: {
                         "saffron": "#FF9933",
                         "storm-deep": "#070A10",
+                        "storm-blue": "#1E3A5F",
                     }
                 }
             }
@@ -32,48 +33,53 @@
             overflow-x: hidden;
         }
 
-        /* LOGO BLEND: Glossy White + Sacred Saffron */
+        /* LOGO: Glossy White + Sacred Saffron */
         .logo-b {
             color: #ffffff;
             font-weight: 900;
-            text-shadow: 0 0 15px rgba(255,255,255,0.7), 0 0 30px rgba(255,255,255,0.3);
-            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            text-shadow: 0 0 20px rgba(255,255,255,0.8);
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .logo-saf { color: #FF9933; font-weight: 800; }
 
-        /* HERO - LEGACY SIGNAL BLEND */
+        /* HERO - SRILA PRABHUPADA AS LEAD HEAD */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(7, 10, 16, 0.4), #070A10), 
-                              url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoDDtn8t42HYtJhR5ek-h6MSobK7EfdvWniTwC2Y_-r0xFbNvDiw1tgmmEkTor0BW_f16k6CdR3Fw-4_DJg-Tq3rbrxvjGGDe7piJuIxQFvDxSP_w1NLdcBPWs74n02rvitfcMopzM3CzyBNoIFZl0vVudww4qb2J_jOMb2U-UZUmUVCvOnD2COcrkxYXLgHE3l4AeEj2d2JSRV_MX11GQVX6xtGhU23FO9TBi_HY');
+            background-image: linear-gradient(to bottom, rgba(7, 10, 16, 0.3), #070A10), 
+                              url('https://images.squarespace-cdn.com/content/v1/592473f337c5819d9b62f831/1585860613867-XF8IWB5D83J88M8P1X2E/SP-harmonium.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center 20%;
         }
 
-        /* HARDWARE CARDS */
+        /* HARDWARE GEAR RAIL */
         .gear-card {
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.5s ease;
+            border-radius: 15px;
             overflow: hidden;
-            border-radius: 20px;
         }
-        .gear-card:hover { transform: scale(1.02); border-color: #FF9933; }
-        .gear-img { width: 100%; height: 220px; object-fit: cover; opacity: 0.4; filter: contrast(1.2); }
-        .gear-card:hover .gear-img { opacity: 0.8; }
+        .gear-card:hover { border-color: #FF9933; transform: translateY(-5px); }
+        .gear-img { width: 100%; height: 180px; object-fit: cover; opacity: 0.4; filter: contrast(1.2) grayscale(1); }
+        .gear-card:hover .gear-img { opacity: 0.8; filter: grayscale(0); }
 
-        /* GENRE TAGS */
+        /* GENRE MATRIX - LARGE & BOLD */
         .genre-tag {
             padding: 12px 24px;
             background: rgba(255, 153, 51, 0.05);
             border: 1px solid rgba(255, 153, 51, 0.2);
             font-size: 14px;
-            font-weight: 800;
+            font-weight: 900;
             color: #FF9933;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-radius: 4px;
+        }
+
+        .glass-nav {
+            background: rgba(7, 10, 16, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         ::-webkit-scrollbar { display: none; }
@@ -82,40 +88,41 @@
 <body>
 
     <!-- NAV -->
-    <nav class="fixed top-0 w-full z-50 bg-[#070A10]/90 backdrop-blur-xl border-b border-white/5 h-20 px-6 lg:px-12 flex items-center justify-between">
+    <nav class="fixed top-0 w-full z-50 glass-nav h-20 px-6 lg:px-12 flex items-center justify-between">
         <a href="/" class="flex flex-col">
             <div class="text-3xl tracking-tighter">
-                <span class="logo-b">B</span><span class="text-white/20">—</span><span class="logo-saf">SAF</span>
+                <span class="logo-b uppercase">B</span><span class="text-white/20">—</span><span class="logo-saf uppercase">SAF</span>
             </div>
             <span class="text-[8px] uppercase tracking-[0.4em] text-saffron font-bold">HKM LIFE CONSOLE</span>
         </a>
 
-        <div class="hidden xl:flex gap-12 text-[10px] font-bold uppercase tracking-widest text-white/50">
-            <a href="#services" class="hover:text-saffron">Services</a>
-            <a href="#work" class="hover:text-saffron">Archive</a>
-            <a href="#genres" class="hover:text-saffron">Genres</a>
+        <div class="hidden xl:flex gap-10 text-[10px] font-bold uppercase tracking-widest text-white/40">
+            <a href="#services" class="hover:text-saffron transition-colors">Engineering Rails</a>
+            <a href="#work" class="hover:text-saffron transition-colors">Studio Archive</a>
+            <a href="#genres" class="hover:text-saffron transition-colors">Genre Matrix</a>
         </div>
 
-        <button id="drawer-btn" class="w-12 h-12 rounded-full bg-saffron flex items-center justify-center shadow-lg hover:scale-110 transition-all">
+        <button id="drawer-btn" class="w-12 h-12 rounded-full bg-saffron flex items-center justify-center shadow-[0_0_20px_rgba(255,153,51,0.4)] hover:scale-110 transition-all">
             <span class="material-symbols-outlined text-storm-deep font-black">person</span>
         </button>
     </nav>
 
-    <!-- FOUNDER DRAWER (Right Corner Profile) -->
-    <div id="backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden"></div>
-    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-[#070A10] z-[70] translate-x-full transition-transform duration-500 p-10 border-l border-white/5 flex flex-col">
+    <!-- FOUNDER PROFILE DRAWER -->
+    <div id="backdrop" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] hidden"></div>
+    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-storm-deep z-[70] translate-x-full transition-transform duration-500 p-10 border-l border-saffron/20 flex flex-col">
         <button id="close-drawer" class="self-end material-symbols-outlined text-white/20 hover:text-saffron mb-8">close</button>
         
-        <div class="relative w-full h-80 rounded-2xl overflow-hidden border border-white/10 mb-8">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHXbZ00uF2i-X9O7Wp3D3O_U6X-Lz5e3Y9i1W-2S0m6N7P8A9B" class="w-full h-full object-cover" alt="Bh. Souvik">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#070A10] to-transparent"></div>
+        <!-- YOUR PORTRAIT FIX -->
+        <div class="relative w-full h-80 rounded-2xl overflow-hidden border border-white/10 mb-8 bg-[#111]">
+            <img src="founder.jpg" class="w-full h-full object-cover" alt="Bh. Souvik" onerror="this.src='https://ui-avatars.com/api/?name=Bh+Souvik&background=FF9933&color=fff&size=512'">
+            <div class="absolute inset-0 bg-gradient-to-t from-storm-deep to-transparent"></div>
         </div>
 
         <div class="space-y-6">
             <h3 class="text-4xl font-black italic logo-b">Bh. Souvik</h3>
             <div class="space-y-1">
                 <p class="text-saffron font-bold text-xs uppercase tracking-widest">Founder / Head Engineer / Raaga Composer</p>
-                <p class="text-white/40 text-[10px] uppercase tracking-widest">HKM Life Surround Facility</p>
+                <p class="text-white/40 text-[10px] uppercase tracking-widest">HKM LIFE SURROUND FACILITY</p>
             </div>
             <p class="text-sm text-white/60 leading-relaxed italic">"Blending the innocent purity of the sacred signal with the clinical gravity of industry-grade surround audio."</p>
             
@@ -127,7 +134,7 @@
     </aside>
 
     <main>
-        <!-- HERO -->
+        <!-- HERO (Srila Prabhupada as Lead) -->
         <section class="hero-bg min-h-screen flex items-center px-6 lg:px-24 pt-20">
             <div class="max-w-4xl">
                 <div class="flex items-center gap-3 mb-8">
@@ -137,86 +144,77 @@
                 <h1 class="text-7xl lg:text-[10rem] font-black leading-[0.8] mb-12">
                     <span class="logo-b">LEGACY</span> <br> <span class="italic text-saffron">SIGNAL.</span>
                 </h1>
-                <p class="text-xl lg:text-2xl text-white/80 max-w-2xl font-light leading-relaxed mb-12">
+                <p class="text-xl lg:text-2xl text-white/80 max-w-xl font-light leading-relaxed mb-12">
                     The Bhaktivedanta Surround Audio Facility is a boutique engineering house specializing in **7.1.4 Dolby Atmos** and **DTS:X** immersive environments.
                 </p>
                 <div class="flex gap-4">
                     <a href="#work" class="px-10 py-5 bg-saffron text-storm-deep font-black uppercase text-xs tracking-widest rounded-sm">Jump to Projects</a>
-                    <a href="#contact" class="px-10 py-5 border-2 border-saffron text-saffron font-black uppercase text-xs tracking-widest rounded-sm">Initiate Record</a>
+                    <a href="#contact" class="px-10 py-5 border-2 border-saffron text-saffron font-black uppercase text-xs tracking-widest rounded-sm transition-all hover:bg-saffron hover:text-storm-deep">Initiate Record</a>
                 </div>
             </div>
         </section>
 
-        <!-- ANALOG HARDWARE RAIL -->
-        <section class="py-32 px-6 lg:px-24">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Maag EQ -->
+        <!-- ANALOG HARDWARE GALLERY (Industry Standards) -->
+        <section class="py-32 px-6 lg:px-24 border-t border-white/5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="gear-card">
-                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070" class="gear-img" alt="SSL">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">SSL Logic Summing</span></div>
+                    <img src="https://www.maagaudio.com/wp-content/uploads/2016/11/EQ4_Straight_Front.jpg" class="gear-img" alt="Maag EQ4">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Maag EQ4 // Air Band Rail</span></div>
                 </div>
-                <!-- UA 1176 -->
                 <div class="gear-card">
-                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070" class="gear-img" alt="Tube">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Universal Audio 1176 Path</span></div>
+                    <img src="https://media.uaudio.com/assetlibrary/1/1/1176ln_straight_on_1.jpg" class="gear-img" alt="UA 1176">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Universal Audio 1176 FET</span></div>
                 </div>
-                <!-- Fairchild -->
                 <div class="gear-card">
-                    <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1?q=80&w=2029" class="gear-img" alt="Fairchild">
+                    <img src="https://images.static-thomann.de/pics/bdb/153177/8243305_800.jpg" class="gear-img" alt="Pultec">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Pultec EQP-1A Tube Path</span></div>
+                </div>
+                <div class="gear-card">
+                    <img src="https://vintageking.com/media/catalog/product/f/a/fairchild_670_compressor_front.jpg" class="gear-img" alt="Fairchild">
                     <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Fairchild 670 Variable-Mu</span></div>
                 </div>
-                <!-- Studer -->
-                <div class="gear-card">
-                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=2070" class="gear-img" alt="Tape">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Studer Analog Tape Azimuth</span></div>
-                </div>
-                <!-- Pultec -->
-                <div class="gear-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070" class="gear-img" alt="Pultec">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Pultec Program Equalization</span></div>
-                </div>
-                <!-- Console -->
-                <div class="gear-card border-saffron/30 bg-saffron/5">
-                    <div class="p-12 flex flex-col items-center justify-center text-center h-full">
-                        <span class="material-symbols-outlined text-saffron text-6xl mb-4">surround_sound</span>
-                        <h4 class="text-xl font-bold uppercase italic">Surround Suite</h4>
-                        <p class="text-[10px] text-white/40 mt-2">7.1.4 Native Calibration</p>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- GENRE MATRIX (Wikipedia Extended) -->
-        <section id="genres" class="py-32 px-6 lg:px-24 bg-white/5">
-            <h2 class="text-5xl font-black italic uppercase tracking-tighter mb-16 text-center">The Genre Spectrum</h2>
+        <!-- GENRE SPECTRUM (Extended & Bold) -->
+        <section id="genres" class="py-32 px-6 lg:px-24 bg-white/5 border-y border-white/5">
+            <h2 class="text-5xl font-black italic uppercase tracking-tighter mb-16 text-center">The Genre Matrix</h2>
             <div class="flex flex-wrap justify-center gap-3 max-w-7xl mx-auto">
-                <span class="genre-tag">Bhakti</span><span class="genre-tag">Kirtan</span><span class="genre-tag">Bhajan</span><span class="genre-tag">Hindustani Classical</span><span class="genre-tag">Carnatic</span><span class="genre-tag">Dhrupad</span><span class="genre-tag">Ghazal</span><span class="genre-tag">Qawwali</span><span class="genre-tag">Jazz</span><span class="genre-tag">Bebop</span><span class="genre-tag">Fusion</span><span class="genre-tag">Progressive Rock</span><span class="genre-tag">Hard Rock</span><span class="genre-tag">Heavy Metal</span><span class="genre-tag">Grunge</span><span class="genre-tag">Psychedelic</span><span class="genre-tag">Pop</span><span class="genre-tag">Synth-Pop</span><span class="genre-tag">Indie</span><span class="genre-tag">Soul</span><span class="genre-tag">R&B</span><span class="genre-tag">Hip-Hop</span><span class="genre-tag">Trap</span><span class="genre-tag">Lo-Fi</span><span class="genre-tag">House</span><span class="genre-tag">Techno</span><span class="genre-tag">Trance</span><span class="genre-tag">Ambient</span><span class="genre-tag">Jungle</span><span class="genre-tag">Drum & Bass</span><span class="genre-tag">Afro House</span><span class="genre-tag">Funk</span><span class="genre-tag">Orchestral</span><span class="genre-tag">Cinematic</span><span class="genre-tag">Industrial</span><span class="genre-tag">Experimental</span><span class="genre-tag">Noise</span><span class="genre-tag">Folk</span><span class="genre-tag">Reggae</span><span class="genre-tag">Vaporwave</span>
+                <span class="genre-tag">Bhakti</span><span class="genre-tag">Kirtan</span><span class="genre-tag">Bhajan</span>
+                <span class="genre-tag">Hindustani Classical</span><span class="genre-tag">Dhrupad</span><span class="genre-tag">Carnatic</span>
+                <span class="genre-tag">Jazz</span><span class="genre-tag">Bebop</span><span class="genre-tag">Fusion</span>
+                <span class="genre-tag">Progressive Rock</span><span class="genre-tag">Hard Rock</span><span class="genre-tag">Metal</span>
+                <span class="genre-tag">Psychedelic</span><span class="genre-tag">Indie</span><span class="genre-tag">Pop</span>
+                <span class="genre-tag">Soul</span><span class="genre-tag">R&B</span><span class="genre-tag">Hip-Hop</span>
+                <span class="genre-tag">Trap</span><span class="genre-tag">House</span><span class="genre-tag">Techno</span>
+                <span class="genre-tag">Ambient</span><span class="genre-tag">Drum & Bass</span><span class="genre-tag">Orchestral</span>
+                <span class="genre-tag">Industrial</span><span class="genre-tag">Afro House</span><span class="genre-tag">Ghazal</span>
             </div>
         </section>
 
         <!-- PROJECTS -->
         <section id="work" class="py-32 px-6 lg:px-24">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="p-12 glass-panel border border-white/5 rounded-3xl hover:border-saffron transition-all">
-                    <span class="text-saffron font-bold text-[10px] uppercase">Studio Master</span>
-                    <h3 class="text-4xl font-bold mt-4 mb-8">STUDIO MIX / MASTER</h3>
-                    <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase tracking-widest hover:bg-saffron hover:text-storm-deep">Launch Reel ↗</a>
+                <div class="p-12 glass-panel rounded-3xl border border-white/5 hover:border-saffron transition-all">
+                    <span class="text-saffron font-bold text-[10px] uppercase tracking-widest">Selected Mix</span>
+                    <h3 class="text-4xl font-bold mt-4 mb-8 uppercase">STUDIO REEL</h3>
+                    <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase hover:bg-saffron hover:text-storm-deep">Watch Session ↗</a>
                 </div>
-                <div class="p-12 glass-panel border border-white/5 rounded-3xl hover:border-saffron transition-all">
-                    <span class="text-saffron font-bold text-[10px] uppercase">Restoration</span>
-                    <h3 class="text-4xl font-bold mt-4 mb-8">TAPE RECOVERY</h3>
-                    <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase tracking-widest hover:bg-saffron hover:text-storm-deep">Launch Reel ↗</a>
+                <div class="p-12 glass-panel rounded-3xl border border-white/5 hover:border-saffron transition-all">
+                    <span class="text-saffron font-bold text-[10px] uppercase tracking-widest">Restoration</span>
+                    <h3 class="text-4xl font-bold mt-4 mb-8 uppercase">TAPE ARCHIVE</h3>
+                    <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase hover:bg-saffron hover:text-storm-deep">Watch Session ↗</a>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACT -->
+        <!-- FOOTER / CONTACT -->
         <footer id="contact" class="py-40 px-6 text-center border-t border-white/5">
-            <span class="logo-b text-5xl lg:text-8xl block mb-6 uppercase">B—SAF</span>
+            <span class="logo-b text-6xl lg:text-9xl block mb-6 uppercase">B—SAF</span>
             <p class="text-saffron font-bold tracking-[0.5em] uppercase text-sm mb-16">HKM LIFE • BHAKTIVEDANTA SURROUND</p>
             <div class="flex flex-col md:flex-row justify-center gap-6 mb-20">
                 <a href="mailto:studio@thebsaf.com" class="px-14 py-6 bg-saffron text-storm-deep font-black rounded-sm uppercase text-xs tracking-widest shadow-2xl">Email Studio</a>
-                <a href="https://wa.me/917624822940" class="px-14 py-6 border border-saffron text-saffron font-black rounded-sm uppercase text-xs tracking-widest hover:bg-saffron hover:text-storm-deep transition-all">WhatsApp Founder</a>
+                <a href="https://wa.me/917624822940" class="px-14 py-6 border-2 border-saffron text-saffron font-black rounded-sm uppercase text-xs tracking-widest hover:bg-saffron hover:text-storm-deep transition-all">WhatsApp Founder</a>
             </div>
             <p class="text-white/20 font-bold uppercase tracking-[0.3em] text-[10px]">© 2024 BHAKTIVEDANTA SURROUND AUDIO FACILITY | LEAD ENGINEERING BY FOUNDER</p>
         </footer>
