@@ -7,18 +7,30 @@
     
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@400;800&family=Space+Mono&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Space+Mono&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+    <style>
+        @layer base {
+            html, body { margin: 0; padding: 0; overscroll-behavior: none; }
+            ::-webkit-scrollbar { display: none; }
+        }
+    </style>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
         tailwind.config = {
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "saffron": "#FF9933",
-                        "storm-deep": "#070A10",
+                        "surface-obsidian": "#070A10",
+                        "surface-rack": "#101726",
+                        "primary": "#FF9933", // Sacred Saffron
+                        "saffron-glow": "rgba(255,153,51,0.22)",
                         "storm-blue": "#1E3A5F",
+                        "storm-deep": "#0B132B",
+                        "text-cream": "#F5EFE6"
                     }
                 }
             }
@@ -26,164 +38,196 @@
     </script>
 
     <style>
-        body {
-            background-color: #070A10;
-            color: #F5EFE6;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* LOGO: Glossy White + Sacred Saffron */
+        /* LOGO BLEND: Shiny White B + Saffron SAF */
         .logo-b {
-            color: #ffffff;
+            color: #FFFFFF;
             font-weight: 900;
-            text-shadow: 0 0 20px rgba(255,255,255,0.8);
+            text-shadow: 0 0 15px rgba(255,255,255,0.6);
             background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .logo-saf { color: #FF9933; font-weight: 800; }
 
-        /* HERO - SRILA PRABHUPADA AS LEAD HEAD */
-        .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(7, 10, 16, 0.3), #070A10), 
-                              url('https://images.squarespace-cdn.com/content/v1/592473f337c5819d9b62f831/1585860613867-XF8IWB5D83J88M8P1X2E/SP-harmonium.jpg');
+        /* THE BREATHING GRADIENT BACKGROUND */
+        body {
+            background: linear-gradient(135deg, #070A10 0%, #1E3A5F 50%, #FF9933 100%);
+            background-attachment: fixed;
+        }
+
+        /* HERO - SRILA PRABHUPADA LEAD */
+        .hero-backdrop {
+            background-image: linear-gradient(to bottom, rgba(7, 10, 16, 0.4), #070A10), 
+                              url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoDDtn8t42HYtJhR5ek-h6MSobK7EfdvWniTwC2Y_-r0xFbNvDiw1tgmmEkTor0BW_f16k6CdR3Fw-4_DJg-Tq3rbrxvjGGDe7piJuIxQFvDxSP_w1NLdcBPWs74n02rvitfcMopzM3CzyBNoIFZl0vVudww4qb2J_jOMb2U-UZUmUVCvOnD2COcrkxYXLgHE3l4AeEj2d2JSRV_MX11GQVX6xtGhU23FO9TBi_HY');
             background-size: cover;
             background-position: center 20%;
         }
 
-        /* HARDWARE GEAR RAIL */
-        .gear-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.5s ease;
-            border-radius: 15px;
-            overflow: hidden;
+        .glass-nav {
+            background: rgba(7, 10, 16, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .gear-card:hover { border-color: #FF9933; transform: translateY(-5px); }
-        .gear-img { width: 100%; height: 180px; object-fit: cover; opacity: 0.4; filter: contrast(1.2) grayscale(1); }
-        .gear-card:hover .gear-img { opacity: 0.8; filter: grayscale(0); }
 
-        /* GENRE MATRIX - LARGE & BOLD */
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; }
+
         .genre-tag {
             padding: 12px 24px;
             background: rgba(255, 153, 51, 0.05);
             border: 1px solid rgba(255, 153, 51, 0.2);
             font-size: 14px;
-            font-weight: 900;
+            font-weight: 800;
             color: #FF9933;
             text-transform: uppercase;
             letter-spacing: 1px;
+            border-radius: 4px;
         }
-
-        .glass-nav {
-            background: rgba(7, 10, 16, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        ::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body>
 
-    <!-- NAV -->
-    <nav class="fixed top-0 w-full z-50 glass-nav h-20 px-6 lg:px-12 flex items-center justify-between">
-        <a href="/" class="flex flex-col">
-            <div class="text-3xl tracking-tighter">
-                <span class="logo-b uppercase">B</span><span class="text-white/20">—</span><span class="logo-saf uppercase">SAF</span>
-            </div>
-            <span class="text-[8px] uppercase tracking-[0.4em] text-saffron font-bold">HKM LIFE CONSOLE</span>
-        </a>
+<body class="text-text-cream min-h-screen relative overflow-x-hidden">
 
-        <div class="hidden xl:flex gap-10 text-[10px] font-bold uppercase tracking-widest text-white/40">
-            <a href="#services" class="hover:text-saffron transition-colors">Engineering Rails</a>
-            <a href="#work" class="hover:text-saffron transition-colors">Studio Archive</a>
-            <a href="#genres" class="hover:text-saffron transition-colors">Genre Matrix</a>
+    <!-- GLOBAL AMBIENT BACKDROP -->
+    <div class="fixed inset-0 z-0 opacity-30 pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/20 blur-[120px] rounded-full"></div>
+        <div class="absolute top-[35%] -left-48 w-[700px] h-[700px] bg-storm-blue/30 blur-[140px] rounded-full"></div>
+    </div>
+
+    <!-- HEADER NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav h-20 px-6 lg:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-6">
+            <a href="/" class="flex flex-col group">
+                <div class="text-3xl tracking-tighter">
+                    <span class="logo-b">B</span><span class="text-white/20">—</span><span class="logo-saf">SAF</span>
+                </div>
+                <span class="text-[8px] uppercase tracking-[0.4em] text-primary font-bold">HKM LIFE CONSOLE</span>
+            </a>
         </div>
 
-        <button id="drawer-btn" class="w-12 h-12 rounded-full bg-saffron flex items-center justify-center shadow-[0_0_20px_rgba(255,153,51,0.4)] hover:scale-110 transition-all">
-            <span class="material-symbols-outlined text-storm-deep font-black">person</span>
-        </button>
-    </nav>
+        <nav class="hidden lg:flex items-center gap-10 text-[10px] font-bold uppercase tracking-widest text-white/50">
+            <div class="dropdown relative">
+                <span class="hover:text-primary cursor-pointer flex items-center gap-1">Services <span class="material-symbols-outlined text-xs">expand_more</span></span>
+                <div class="dropdown-menu absolute top-full left-0 w-64 bg-surface-obsidian border border-white/10 p-4 mt-2 rounded-lg shadow-2xl">
+                    <ul class="flex flex-col gap-4">
+                        <li><a href="#" class="hover:text-primary block">01 // Demo Project</a></li>
+                        <li><a href="#" class="hover:text-primary block">02 // Partnership</a></li>
+                        <li><a href="#" class="hover:text-primary block">03 // Collaboration</a></li>
+                        <li><a href="#" class="hover:text-primary block">04 // 5-Min Full Song</a></li>
+                        <li><a href="#" class="hover:text-primary block">05 // 1-Min Demo Shorts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#work" class="hover:text-primary">Studio Archive</a>
+            <a href="#live" class="hover:text-primary">Live Sessions</a>
+            <a href="#genres" class="hover:text-primary">Genre Matrix</a>
+        </nav>
 
-    <!-- FOUNDER PROFILE DRAWER -->
-    <div id="backdrop" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[60] hidden"></div>
-    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-storm-deep z-[70] translate-x-full transition-transform duration-500 p-10 border-l border-saffron/20 flex flex-col">
-        <button id="close-drawer" class="self-end material-symbols-outlined text-white/20 hover:text-saffron mb-8">close</button>
-        
-        <!-- YOUR PORTRAIT FIX -->
-        <div class="relative w-full h-80 rounded-2xl overflow-hidden border border-white/10 mb-8 bg-[#111]">
-            <img src="founder.jpg" class="w-full h-full object-cover" alt="Bh. Souvik" onerror="this.src='https://ui-avatars.com/api/?name=Bh+Souvik&background=FF9933&color=fff&size=512'">
-            <div class="absolute inset-0 bg-gradient-to-t from-storm-deep to-transparent"></div>
+        <div class="flex items-center gap-4">
+            <div class="hidden sm:flex flex-col text-right mr-4 border-r border-primary/30 pr-4">
+                <span class="text-[9px] font-mono text-primary animate-pulse">SYSTEM: ONLINE</span>
+                <span class="text-[10px] font-bold uppercase">HKM FACILITY</span>
+            </div>
+            <button id="drawer-btn" class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(255,153,51,0.4)] hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-storm-deep font-black">person</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- TECHNICAL SIDEBAR DRAWER -->
+    <div id="backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[60] hidden transition-opacity"></div>
+    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-surface-obsidian z-[70] translate-x-full transition-transform duration-500 p-10 border-l border-primary/20 flex flex-col gap-8 overflow-y-auto">
+        <div class="flex justify-between items-center pb-6 border-b border-white/10">
+            <div class="flex flex-col">
+                <span class="text-xs text-primary font-bold uppercase tracking-widest">Facility Routing</span>
+                <span class="text-2xl font-black italic">Console Dispatch</span>
+            </div>
+            <button id="close-drawer" class="material-symbols-outlined text-white/20 hover:text-primary">close</button>
         </div>
 
-        <div class="space-y-6">
-            <h3 class="text-4xl font-black italic logo-b">Bh. Souvik</h3>
-            <div class="space-y-1">
-                <p class="text-saffron font-bold text-xs uppercase tracking-widest">Founder / Head Engineer / Raaga Composer</p>
-                <p class="text-white/40 text-[10px] uppercase tracking-widest">HKM LIFE SURROUND FACILITY</p>
+        <!-- PRABHUPADA IN DRAWER -->
+        <div class="relative w-full h-64 rounded-xl overflow-hidden border border-primary/30 shadow-2xl">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoDDtn8t42HYtJhR5ek-h6MSobK7EfdvWniTwC2Y_-r0xFbNvDiw1tgmmEkTor0BW_f16k6CdR3Fw-4_DJg-Tq3rbrxvjGGDe7piJuIxQFvDxSP_w1NLdcBPWs74n02rvitfcMopzM3CzyBNoIFZl0vVudww4qb2J_jOMb2U-UZUmUVCvOnD2COcrkxYXLgHE3l4AeEj2d2JSRV_MX11GQVX6xtGhU23FO9TBi_HY" class="w-full h-full object-cover saturate-50" alt="Srila Prabhupada">
+            <div class="absolute inset-0 bg-gradient-to-t from-surface-obsidian to-transparent"></div>
+        </div>
+
+        <div class="p-6 bg-white/5 rounded-xl border border-white/10">
+            <h3 class="text-lg font-bold text-primary mb-2 italic">Bh. Souvik</h3>
+            <p class="text-[10px] uppercase font-bold tracking-widest text-white/40 mb-4">Founder / Head Engineer / Raaga Composer</p>
+            <p class="text-sm text-white/60 leading-relaxed">Direct facility access for 7.1.4 Atmos projects, archival restoration, and multi-track recovery.</p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="flex justify-between items-center p-4 bg-surface-rack rounded border border-white/5">
+                <span class="text-[10px] uppercase text-primary font-bold">Studio Desk</span>
+                <span class="text-sm font-bold tracking-tight">studio@thebsaf.com</span>
             </div>
-            <p class="text-sm text-white/60 leading-relaxed italic">"Blending the innocent purity of the sacred signal with the clinical gravity of industry-grade surround audio."</p>
-            
-            <div class="pt-8 border-t border-white/5 space-y-4">
-                <a href="mailto:studio@thebsaf.com" class="block text-lg font-bold hover:text-saffron tracking-tight">studio@thebsaf.com</a>
-                <a href="https://wa.me/917624822940" class="block text-lg font-bold hover:text-saffron tracking-tight">+91 7624822940</a>
+            <div class="flex justify-between items-center p-4 bg-surface-rack rounded border border-white/5">
+                <span class="text-[10px] uppercase text-primary font-bold">WhatsApp Direct</span>
+                <span class="text-sm font-bold tracking-tight">+91 7624822940</span>
             </div>
+        </div>
+
+        <div class="mt-auto pt-10">
+             <button class="w-full py-4 bg-primary text-storm-deep font-black uppercase tracking-widest rounded shadow-xl">Initiate Master Route</button>
         </div>
     </aside>
 
-    <main>
-        <!-- HERO (Srila Prabhupada as Lead) -->
-        <section class="hero-bg min-h-screen flex items-center px-6 lg:px-24 pt-20">
-            <div class="max-w-4xl">
-                <div class="flex items-center gap-3 mb-8">
-                    <span class="w-3 h-3 bg-saffron rounded-full animate-pulse"></span>
-                    <span class="text-xs font-bold uppercase tracking-[0.4em] text-saffron">Lead Facility Engineering</span>
+    <main class="relative z-10">
+        <!-- HERO SECTION -->
+        <section class="hero-backdrop min-h-screen flex items-end pb-32 px-6 lg:px-24">
+            <div class="max-w-5xl">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+                    <span class="text-xs font-bold uppercase tracking-[0.4em] text-primary">01 / B—SAF Facility</span>
                 </div>
-                <h1 class="text-7xl lg:text-[10rem] font-black leading-[0.8] mb-12">
-                    <span class="logo-b">LEGACY</span> <br> <span class="italic text-saffron">SIGNAL.</span>
+                <h1 class="text-6xl lg:text-[9rem] font-black leading-none mb-8 tracking-tighter">
+                    <span class="logo-b">LEGACY</span> <br> <span class="italic logo-saf">SIGNAL.</span>
                 </h1>
-                <p class="text-xl lg:text-2xl text-white/80 max-w-xl font-light leading-relaxed mb-12">
-                    The Bhaktivedanta Surround Audio Facility is a boutique engineering house specializing in **7.1.4 Dolby Atmos** and **DTS:X** immersive environments.
-                </p>
-                <div class="flex gap-4">
-                    <a href="#work" class="px-10 py-5 bg-saffron text-storm-deep font-black uppercase text-xs tracking-widest rounded-sm">Jump to Projects</a>
-                    <a href="#contact" class="px-10 py-5 border-2 border-saffron text-saffron font-black uppercase text-xs tracking-widest rounded-sm transition-all hover:bg-saffron hover:text-storm-deep">Initiate Record</a>
+                <p class="text-xs font-bold tracking-[0.6em] uppercase text-white/60 mb-12">Bhaktivedanta Surround Audio Facility</p>
+                <div class="flex flex-col lg:flex-row gap-12 items-start lg:items-center">
+                    <div class="space-y-2">
+                        <p class="text-2xl font-light uppercase tracking-widest">Mixing Engineer / Mastering Editor</p>
+                        <p class="text-2xl font-light uppercase tracking-widest text-white/30">Vocal Production / Restoration / ATMOS</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="#work" class="px-8 py-4 border border-primary text-primary font-bold uppercase text-[10px] tracking-widest hover:bg-primary hover:text-storm-deep transition-all">View Work ↘</a>
+                        <a href="#contact" class="px-8 py-4 border border-white/10 text-white font-bold uppercase text-[10px] tracking-widest hover:bg-white hover:text-storm-deep transition-all">Contact →</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ANALOG HARDWARE GALLERY (Industry Standards) -->
-        <section class="py-32 px-6 lg:px-24 border-t border-white/5">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="gear-card">
-                    <img src="https://www.maagaudio.com/wp-content/uploads/2016/11/EQ4_Straight_Front.jpg" class="gear-img" alt="Maag EQ4">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Maag EQ4 // Air Band Rail</span></div>
+        <!-- HARDWARE CONSOLE RAIL -->
+        <section class="py-32 px-6 lg:px-24 bg-surface-obsidian">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
+                    <img src="https://maagaudio.com/wp-content/uploads/2016/11/EQ4_Straight_Front.jpg" class="w-full h-full object-cover opacity-20 group-hover:opacity-50 transition-opacity" alt="Maag">
+                    <span class="absolute bottom-6 left-6 text-[10px] font-bold text-primary uppercase">Maag EQ4 // Air Band Rail</span>
                 </div>
-                <div class="gear-card">
-                    <img src="https://media.uaudio.com/assetlibrary/1/1/1176ln_straight_on_1.jpg" class="gear-img" alt="UA 1176">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Universal Audio 1176 FET</span></div>
+                <div class="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
+                    <img src="https://media.uaudio.com/assetlibrary/1/1/1176ln_straight_on_1.jpg" class="w-full h-full object-cover opacity-20 group-hover:opacity-50 transition-opacity" alt="UA 1176">
+                    <span class="absolute bottom-6 left-6 text-[10px] font-bold text-primary uppercase">Universal Audio 1176 FET</span>
                 </div>
-                <div class="gear-card">
-                    <img src="https://images.static-thomann.de/pics/bdb/153177/8243305_800.jpg" class="gear-img" alt="Pultec">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Pultec EQP-1A Tube Path</span></div>
+                <div class="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
+                    <img src="https://vintageking.com/media/catalog/product/f/a/fairchild-670_1.jpg" class="w-full h-full object-cover opacity-20 group-hover:opacity-50 transition-opacity" alt="Fairchild">
+                    <span class="absolute bottom-6 left-6 text-[10px] font-bold text-primary uppercase">Fairchild 670 Variable-Mu</span>
                 </div>
-                <div class="gear-card">
-                    <img src="https://vintageking.com/media/catalog/product/f/a/fairchild_670_compressor_front.jpg" class="gear-img" alt="Fairchild">
-                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Fairchild 670 Variable-Mu</span></div>
+                <div class="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
+                    <img src="https://images.static-thomann.de/pics/bdb/153177/8243305_800.jpg" class="w-full h-full object-cover opacity-20 group-hover:opacity-50 transition-opacity" alt="Pultec">
+                    <span class="absolute bottom-6 left-6 text-[10px] font-bold text-primary uppercase">Pultec EQP-1A Tube Path</span>
                 </div>
             </div>
         </section>
 
-        <!-- GENRE SPECTRUM (Extended & Bold) -->
-        <section id="genres" class="py-32 px-6 lg:px-24 bg-white/5 border-y border-white/5">
-            <h2 class="text-5xl font-black italic uppercase tracking-tighter mb-16 text-center">The Genre Matrix</h2>
+        <!-- GENRE SPECTRUM -->
+        <section id="genres" class="py-32 px-6 lg:px-24 border-y border-white/5">
+            <h2 class="text-5xl font-black italic uppercase tracking-tighter mb-16 text-center">The Genre Spectrum</h2>
             <div class="flex flex-wrap justify-center gap-3 max-w-7xl mx-auto">
                 <span class="genre-tag">Bhakti</span><span class="genre-tag">Kirtan</span><span class="genre-tag">Bhajan</span>
                 <span class="genre-tag">Hindustani Classical</span><span class="genre-tag">Dhrupad</span><span class="genre-tag">Carnatic</span>
                 <span class="genre-tag">Jazz</span><span class="genre-tag">Bebop</span><span class="genre-tag">Fusion</span>
-                <span class="genre-tag">Progressive Rock</span><span class="genre-tag">Hard Rock</span><span class="genre-tag">Metal</span>
+                <span class="genre-tag">Progressive Rock</span><span class="genre-tag">Hard Rock</span><span class="genre-tag">Heavy Metal</span>
                 <span class="genre-tag">Psychedelic</span><span class="genre-tag">Indie</span><span class="genre-tag">Pop</span>
                 <span class="genre-tag">Soul</span><span class="genre-tag">R&B</span><span class="genre-tag">Hip-Hop</span>
                 <span class="genre-tag">Trap</span><span class="genre-tag">House</span><span class="genre-tag">Techno</span>
@@ -192,33 +236,63 @@
             </div>
         </section>
 
-        <!-- PROJECTS -->
+        <!-- PROJECTS REEL -->
         <section id="work" class="py-32 px-6 lg:px-24">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="p-12 glass-panel rounded-3xl border border-white/5 hover:border-saffron transition-all">
-                    <span class="text-saffron font-bold text-[10px] uppercase tracking-widest">Selected Mix</span>
-                    <h3 class="text-4xl font-bold mt-4 mb-8 uppercase">STUDIO REEL</h3>
-                    <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase hover:bg-saffron hover:text-storm-deep">Watch Session ↗</a>
+                <div class="p-12 bg-white/5 rounded-3xl border border-white/5 hover:border-primary transition-all group">
+                    <span class="text-primary font-bold text-[10px] uppercase">Selected Mix</span>
+                    <h3 class="text-4xl font-bold mt-4 mb-8 uppercase italic">STUDIO REEL</h3>
+                    <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase hover:bg-primary hover:text-storm-deep">Launch Project ↗</a>
                 </div>
-                <div class="p-12 glass-panel rounded-3xl border border-white/5 hover:border-saffron transition-all">
-                    <span class="text-saffron font-bold text-[10px] uppercase tracking-widest">Restoration</span>
-                    <h3 class="text-4xl font-bold mt-4 mb-8 uppercase">TAPE ARCHIVE</h3>
-                    <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase hover:bg-saffron hover:text-storm-deep">Watch Session ↗</a>
+                <div class="p-12 bg-white/5 rounded-3xl border border-white/5 hover:border-primary transition-all group">
+                    <span class="text-primary font-bold text-[10px] uppercase">Restoration</span>
+                    <h3 class="text-4xl font-bold mt-4 mb-8 uppercase italic">TAPE ARCHIVE</h3>
+                    <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase hover:bg-primary hover:text-storm-deep">Launch Project ↗</a>
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER / CONTACT -->
-        <footer id="contact" class="py-40 px-6 text-center border-t border-white/5">
-            <span class="logo-b text-6xl lg:text-9xl block mb-6 uppercase">B—SAF</span>
-            <p class="text-saffron font-bold tracking-[0.5em] uppercase text-sm mb-16">HKM LIFE • BHAKTIVEDANTA SURROUND</p>
-            <div class="flex flex-col md:flex-row justify-center gap-6 mb-20">
-                <a href="mailto:studio@thebsaf.com" class="px-14 py-6 bg-saffron text-storm-deep font-black rounded-sm uppercase text-xs tracking-widest shadow-2xl">Email Studio</a>
-                <a href="https://wa.me/917624822940" class="px-14 py-6 border-2 border-saffron text-saffron font-black rounded-sm uppercase text-xs tracking-widest hover:bg-saffron hover:text-storm-deep transition-all">WhatsApp Founder</a>
+        <!-- LIVE CONSOLE SESSION -->
+        <section id="live" class="py-24 px-6 lg:px-24 bg-surface-obsidian">
+            <div class="flex items-center gap-4 mb-16">
+                <span class="w-12 h-[1px] bg-primary"></span>
+                <h2 class="text-3xl font-black uppercase italic">Live Console sessions</h2>
             </div>
-            <p class="text-white/20 font-bold uppercase tracking-[0.3em] text-[10px]">© 2024 BHAKTIVEDANTA SURROUND AUDIO FACILITY | LEAD ENGINEERING BY FOUNDER</p>
-        </footer>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <a href="https://www.youtube.com/live/J3LeMZdnugo" target="_blank" class="p-6 border border-white/10 rounded font-bold text-[10px] text-center hover:border-primary">SESSION 01</a>
+                <a href="https://www.youtube.com/live/MOSouZ8JE2g" target="_blank" class="p-6 border border-white/10 rounded font-bold text-[10px] text-center hover:border-primary">SESSION 02</a>
+                <a href="https://www.youtube.com/live/xpmOBGed_RY" target="_blank" class="p-6 border border-white/10 rounded font-bold text-[10px] text-center hover:border-primary">SESSION 03</a>
+                <a href="https://www.youtube.com/live/iG2RXgJevns" target="_blank" class="p-6 border border-white/10 rounded font-bold text-[10px] text-center hover:border-primary">SESSION 04</a>
+                <a href="https://www.youtube.com/live/lPyp24lVp9g" target="_blank" class="p-6 border border-white/10 rounded font-bold text-[10px] text-center hover:border-primary">SESSION 05</a>
+                <a href="https://www.youtube.com/live/dbtAzDSg8l0" target="_blank" class="p-6 border border-white/10 rounded font-bold text-[10px] text-center hover:border-primary">SESSION 06</a>
+            </div>
+        </section>
+
+        <!-- FINAL CALL -->
+        <section id="contact" class="py-40 px-6 text-center border-t border-white/5">
+            <div class="max-w-4xl mx-auto p-20 rounded-[4rem] border border-primary/20 bg-primary/5 shadow-2xl">
+                <h2 class="text-6xl lg:text-8xl font-black tracking-tighter mb-10 italic"><span class="logo-b">INITIATE</span> <br> <span class="logo-saf text-primary">THE RECORD.</span></h2>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a href="mailto:studio@thebsaf.com" class="px-14 py-6 bg-primary text-storm-deep font-black rounded uppercase text-xs tracking-widest shadow-2xl hover:scale-105 transition-transform">Email Studio Desk</a>
+                    <a href="https://wa.me/917624822940" class="px-14 py-6 border-2 border-primary text-primary font-black rounded uppercase text-xs tracking-widest hover:bg-primary hover:text-storm-deep transition-all">WhatsApp Founder</a>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="py-20 px-6 lg:px-24 border-t border-white/5 text-center">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex flex-col items-center md:items-start">
+                <div class="text-2xl tracking-tighter mb-2">
+                    <span class="logo-b">B</span><span class="text-white/20">—</span><span class="logo-saf">SAF</span>
+                </div>
+                <span class="text-[9px] font-bold text-primary uppercase tracking-[0.4em]">HKM LIFE • BHAKTIVEDANTA SURROUND</span>
+            </div>
+            <p class="text-[10px] text-white/20 font-bold uppercase tracking-[0.3em]">
+                © 2025 Bhaktivedanta Surround Audio Facility | Engineering by Founder
+            </p>
+        </div>
+    </footer>
 
     <script>
         const btn = document.getElementById('drawer-btn');
