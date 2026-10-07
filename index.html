@@ -3,16 +3,13 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>BSAF — Bhaktivedanta Surround Audio Facility</title>
+    <title>BSAF — HKM Life | Bhaktivedanta Surround Audio Facility</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="BSAF — Professional Audio Engineering by Bh. Souvik. Mixing, Mastering, Vocal Restoration, and Dolby Atmos Surround Specialists.">
-    <meta name="keywords" content="BSAF, HKM Life, Audio Mixing, Mastering, Dolby Atmos, DTS:X, Kirtan Mixing, Bhaktivedanta Audio, Immersive Audio">
-
-    <!-- Fonts -->
+    <!-- SEO & Metadata -->
+    <meta name="description" content="BSAF - Lead Engineering by Founder. 7.1.4 Dolby Atmos Surround Specialists. Professional Mixing, Mastering, and Archival Restoration at HKM Life.">
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@800&family=Space+Mono&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;700;900&family=Manrope:wght@800&family=Space+Mono&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,6 +21,7 @@
                         "saffron": "#FF9933",
                         "storm-blue": "#1E3A5F",
                         "storm-deep": "#0B132B",
+                        "vintage-paper": "#F5EFE6"
                     }
                 }
             }
@@ -38,7 +36,14 @@
             overflow-x: hidden;
         }
 
-        /* Satin Glossy White ZigZag Logo Effect */
+        /* VINTAGE NOISE OVERLAY */
+        body::before {
+            content: "";
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.05; pointer-events: none; z-index: 99;
+        }
+
         .logo-zigzag {
             font-family: 'Manrope', sans-serif;
             font-weight: 900;
@@ -49,48 +54,41 @@
             letter-spacing: -2px;
         }
 
-        /* NEW HERO BACKGROUND (Harmonium Session) */
+        /* HERO - SRILA PRABHUPADA HARMONIUM SESSION */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(11, 19, 43, 0.5), #0B132B), 
+            background-image: linear-gradient(to bottom, rgba(11, 19, 43, 0.4), #0B132B), 
                               url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoDDtn8t42HYtJhR5ek-h6MSobK7EfdvWniTwC2Y_-r0xFbNvDiw1tgmmEkTor0BW_f16k6CdR3Fw-4_DJg-Tq3rbrxvjGGDe7piJuIxQFvDxSP_w1NLdcBPWs74n02rvitfcMopzM3CzyBNoIFZl0vVudww4qb2J_jOMb2U-UZUmUVCvOnD2COcrkxYXLgHE3l4AeEj2d2JSRV_MX11GQVX6xtGhU23FO9TBi_HY');
             background-size: cover;
             background-position: center;
         }
 
-        /* Glassmorphism Panels */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+        /* SERVICES DROPDOWN */
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; }
 
-        /* LARGER GENRE TAGS */
-        .genre-tag {
-            padding: 10px 20px;
-            background: rgba(255, 153, 51, 0.08);
-            border: 1px solid rgba(255, 153, 51, 0.3);
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 6px;
-            color: #FF9933;
-            transition: all 0.3s ease;
+        /* VINTAGE HARDWARE IMAGES */
+        .hardware-blend {
+            filter: grayscale(100%) contrast(1.2) sepia(0.2);
+            mix-blend-mode: luminosity;
+            opacity: 0.15;
+            transition: all 0.6s ease;
         }
-        .genre-tag:hover {
-            background: rgba(255, 153, 51, 0.2);
-            transform: scale(1.05);
-            border-color: #FF9933;
-        }
+        .hardware-blend:hover { opacity: 0.4; filter: grayscale(0%) contrast(1); }
 
-        /* Archival Image Styling */
-        .vintage-photo {
-            filter: grayscale(100%) contrast(1.1);
-            border: 8px solid rgba(255,255,255,0.05);
-            transition: all 0.5s ease;
+        /* GENRE MATRIX */
+        .genre-grid span {
+            font-family: 'Space+Mono', monospace;
+            font-size: 11px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 153, 51, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+            transition: 0.3s;
         }
-        .vintage-photo:hover {
-            filter: grayscale(0%);
+        .genre-grid span:hover {
+            background: #FF9933;
+            color: #0B132B;
             border-color: #FF9933;
+            transform: translateY(-2px);
         }
 
         ::-webkit-scrollbar { display: none; }
@@ -99,198 +97,186 @@
 <body class="selection:bg-saffron selection:text-storm-deep">
 
     <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/5 h-20 px-6 lg:px-12 flex items-center justify-between">
+    <nav class="fixed top-0 w-full z-50 bg-storm-deep/80 backdrop-blur-xl border-b border-white/5 h-20 px-6 lg:px-12 flex items-center justify-between">
         <a href="/" class="flex flex-col group">
             <span class="text-3xl logo-zigzag">B—SAF</span>
-            <span class="text-[8px] uppercase tracking-[0.4em] text-saffron font-bold">Refresh Console</span>
+            <span class="text-[8px] uppercase tracking-[0.4em] text-saffron font-bold">HKM LIFE CONSOLE</span>
         </a>
 
-        <div class="hidden xl:flex gap-8 items-center text-[10px] font-bold uppercase tracking-widest text-white/60">
-            <a href="#services" class="hover:text-saffron">Services</a>
+        <div class="hidden xl:flex gap-12 items-center text-[10px] font-bold uppercase tracking-widest text-white/60">
+            <!-- SERVICES DROPDOWN -->
+            <div class="dropdown relative group cursor-pointer">
+                <span class="hover:text-saffron flex items-center gap-1">Services <span class="material-symbols-outlined text-[14px]">expand_more</span></span>
+                <div class="dropdown-menu absolute top-full left-0 w-64 bg-storm-deep border border-white/10 p-4 mt-2 shadow-2xl rounded-lg">
+                    <ul class="flex flex-col gap-4 text-[9px]">
+                        <li><a href="mailto:studio@thebsaf.com?subject=Demo%20Project" class="hover:text-saffron block">01 // Demo Project</a></li>
+                        <li><a href="mailto:studio@thebsaf.com?subject=Partnership" class="hover:text-saffron block">02 // Partnership Inquiry</a></li>
+                        <li><a href="mailto:studio@thebsaf.com?subject=Collaboration" class="hover:text-saffron block">03 // Collaboration</a></li>
+                        <li><a href="mailto:studio@thebsaf.com?subject=Full%20Song%20Project" class="hover:text-saffron block">04 // 5-Min Full Song Project</a></li>
+                        <li><a href="mailto:studio@thebsaf.com?subject=Demo%20Reel" class="hover:text-saffron block">05 // 1-Min Demo Reel / Shorts</a></li>
+                    </ul>
+                </div>
+            </div>
             <a href="#work" class="hover:text-saffron">Projects</a>
-            <a href="#genres" class="hover:text-saffron">Genres</a>
+            <a href="#genres" class="hover:text-saffron">Genre Matrix</a>
             <a href="#contact" class="hover:text-saffron">Contact</a>
         </div>
 
         <div class="flex items-center gap-4">
-            <div class="hidden sm:flex flex-col text-right mr-4">
-                <span class="text-[9px] font-mono text-saffron">STATUS: ONLINE</span>
-                <span class="text-[10px] font-bold uppercase">HKM LIFE</span>
+            <div class="hidden sm:flex flex-col text-right mr-4 border-r border-saffron/30 pr-4">
+                <span class="text-[9px] font-mono text-saffron">LOCATION: HKM LIFE</span>
+                <span class="text-[10px] font-bold uppercase">Lead Engineering</span>
             </div>
-            <button id="drawer-btn" class="w-10 h-10 rounded-full bg-saffron flex items-center justify-center shadow-[0_0_15px_rgba(255,153,51,0.4)]">
-                <span class="material-symbols-outlined text-storm-deep font-bold">menu</span>
+            <button id="drawer-btn" class="w-12 h-12 rounded-full bg-saffron flex items-center justify-center shadow-[0_0_20px_rgba(255,153,51,0.5)] hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-storm-deep font-black">menu_open</span>
             </button>
         </div>
     </nav>
 
-    <!-- SLIDING CONTACT DRAWER -->
-    <div id="backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-md z-[60] hidden"></div>
-    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-storm-deep z-[70] translate-x-full transition-transform duration-500 p-10 flex flex-col gap-8 border-l border-saffron/20">
-        <div class="flex justify-between items-center">
-            <span class="logo-zigzag text-2xl">B—SAF</span>
-            <button id="close-drawer" class="material-symbols-outlined text-white/40">close</button>
+    <!-- SLIDING FOUNDER DRAWER -->
+    <div id="backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[60] hidden"></div>
+    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-storm-deep z-[70] translate-x-full transition-transform duration-500 p-8 flex flex-col border-l border-saffron/20 overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+            <span class="logo-zigzag text-2xl">B—SAF FOUNDER</span>
+            <button id="close-drawer" class="material-symbols-outlined text-white/40 hover:text-saffron">close</button>
         </div>
+        
+        <!-- SRILA PRABHUPADA PHOTO IN DRAWER -->
+        <div class="relative w-full h-72 rounded-xl overflow-hidden mb-8 border-2 border-saffron/30 shadow-2xl">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoDDtn8t42HYtJhR5ek-h6MSobK7EfdvWniTwC2Y_-r0xFbNvDiw1tgmmEkTor0BW_f16k6CdR3Fw-4_DJg-Tq3rbrxvjGGDe7piJuIxQFvDxSP_w1NLdcBPWs74n02rvitfcMopzM3CzyBNoIFZl0vVudww4qb2J_jOMb2U-UZUmUVCvOnD2COcrkxYXLgHE3l4AeEj2d2JSRV_MX11GQVX6xtGhU23FO9TBi_HY" class="w-full h-full object-cover saturate-50 sepia-[.3] hue-rotate-[10deg]" alt="Srila Prabhupada">
+            <div class="absolute inset-0 bg-gradient-to-t from-saffron/40 to-transparent"></div>
+        </div>
+
         <div class="space-y-6">
-            <div class="p-4 glass-panel rounded-lg">
-                <p class="text-[10px] text-saffron font-bold uppercase mb-1">Direct Email</p>
-                <a href="mailto:studio@thebsaf.com" class="text-lg font-bold">studio@thebsaf.com</a>
-            </div>
-            <div class="p-4 glass-panel rounded-lg">
-                <p class="text-[10px] text-saffron font-bold uppercase mb-1">WhatsApp Founder</p>
-                <a href="https://wa.me/917624822940" class="text-lg font-bold">+91 7624822940</a>
-            </div>
-            <div class="p-4 glass-panel rounded-lg">
-                <p class="text-[10px] text-saffron font-bold uppercase mb-1">Facility Host</p>
-                <p class="text-lg font-bold text-white uppercase">HKM LIFE</p>
+            <h3 class="text-saffron font-bold uppercase text-xs tracking-widest">Founder Direct Line</h3>
+            <p class="text-sm text-white/60 leading-relaxed italic border-l-2 border-saffron pl-4">"The engineering is a service to the record. We honor the tradition of Srila Prabhupada by ensuring every signal is captured with monastic integrity and futuristic precision."</p>
+            
+            <div class="grid grid-cols-1 gap-4 pt-4">
+                <a href="mailto:studio@thebsaf.com" class="p-4 bg-white/5 rounded-lg flex items-center justify-between group hover:bg-saffron/10">
+                    <span class="text-xs font-bold uppercase tracking-widest">Email Facility</span>
+                    <span class="material-symbols-outlined text-saffron">mail</span>
+                </a>
+                <a href="https://wa.me/917624822940" class="p-4 bg-white/5 rounded-lg flex items-center justify-between group hover:bg-saffron/10">
+                    <span class="text-xs font-bold uppercase tracking-widest">Founder WhatsApp</span>
+                    <span class="material-symbols-outlined text-saffron">chat</span>
+                </a>
             </div>
         </div>
     </aside>
 
     <main>
-        <!-- HERO (Harmonium Session Image) -->
+        <!-- HERO (Harmonium Session) -->
         <section class="hero-bg min-h-screen flex items-center px-6 lg:px-24 pt-20">
-            <div class="max-w-4xl">
-                <div class="flex items-center gap-2 mb-6">
-                    <span class="w-3 h-3 bg-saffron rounded-full animate-pulse"></span>
-                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-saffron">Founder & Lead Engineer Console</span>
+            <div class="max-w-5xl">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="w-4 h-4 bg-saffron rounded-full animate-ping"></span>
+                    <span class="text-xs font-bold uppercase tracking-[0.5em] text-saffron">HKM Life Surround Facility Engineering</span>
                 </div>
-                <h1 class="text-6xl lg:text-9xl font-black logo-zigzag leading-none mb-8">
-                    LEGACY <br> <span class="italic text-saffron">SURROUND.</span>
+                <h1 class="text-7xl lg:text-[10rem] font-black logo-zigzag leading-[0.8] mb-12">
+                    LEGACY <br> <span class="italic text-saffron">SIGNAL.</span>
                 </h1>
-                <p class="text-xl text-white/70 max-w-xl leading-relaxed mb-10">
-                    The Bhaktivedanta Surround Audio Facility  "B" - "S A F"  is a boutique engineering house specializing in **Dolby Atmos** and **DTS:X** immersive environments.
+                <p class="text-xl lg:text-2xl text-white/80 max-w-2xl font-light leading-relaxed mb-12">
+                    Where the sacred acoustic tradition of **Mayapur** meets high-performance **7.1.4 Dolby Atmos** precision. Direct Founder Access for all projects.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#work" class="px-8 py-4 bg-saffron text-storm-deep font-black uppercase text-xs tracking-widest rounded shadow-xl">Explore Projects</a>
-                    <a href="#contact" class="px-8 py-4 glass-panel border border-saffron/50 text-white font-black uppercase text-xs tracking-widest rounded">Initiate Record</a>
+                <div class="flex gap-6">
+                    <a href="#work" class="px-10 py-5 bg-saffron text-storm-deep font-black uppercase text-xs tracking-[0.2em] rounded-sm shadow-2xl hover:bg-white transition-colors">Jump to Projects</a>
+                    <a href="#contact" class="px-10 py-5 border-2 border-saffron text-saffron font-black uppercase text-xs tracking-[0.2em] rounded-sm hover:bg-saffron hover:text-storm-deep transition-all">Initiate Record</a>
                 </div>
             </div>
         </section>
 
-        <!-- DOLBY ATMOS GRAPHIC BAR -->
-        <section class="py-16 px-6 lg:px-24 bg-storm-deep border-y border-white/5">
-            <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-12 lg:gap-24 opacity-60">
-                 <div class="flex flex-col items-center">
-                    <span class="text-2xl font-black italic">DOLBY ATMOS</span>
-                    <span class="text-[8px] font-bold text-saffron uppercase tracking-widest">7.1.4 Immersive</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-2xl font-black italic uppercase tracking-tighter">DTS:X</span>
-                    <span class="text-[8px] font-bold text-saffron uppercase tracking-widest">Object-Based Audio</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-2xl font-black italic">IMAX ENHANCED</span>
-                    <span class="text-[8px] font-bold text-saffron uppercase tracking-widest">Studio Calibrated</span>
-                </div>
+        <!-- HARDWARE VINTAGE GALLERY -->
+        <section class="py-24 px-6 lg:px-24 grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="relative h-64 glass-panel rounded-xl overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04" class="w-full h-full object-cover hardware-blend" alt="SSL Console">
+                <div class="absolute bottom-4 left-4 text-[9px] font-bold text-saffron uppercase">SSL Logic Summing</div>
+            </div>
+            <div class="relative h-64 glass-panel rounded-xl overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0" class="w-full h-full object-cover hardware-blend" alt="Vintage Mic">
+                <div class="absolute bottom-4 left-4 text-[9px] font-bold text-saffron uppercase">Tube Condenser Path</div>
+            </div>
+            <div class="relative h-64 glass-panel rounded-xl overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81" class="w-full h-full object-cover hardware-blend" alt="Reel Machine">
+                <div class="absolute bottom-4 left-4 text-[9px] font-bold text-saffron uppercase">Analog Tape Azimuth</div>
+            </div>
+            <div class="relative h-64 glass-panel rounded-xl overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1" class="w-full h-full object-cover hardware-blend" alt="Hardware Rack">
+                <div class="absolute bottom-4 left-4 text-[9px] font-bold text-saffron uppercase">FET Compression Rail</div>
             </div>
         </section>
 
-        <!-- STUDIO PROJECTS -->
+        <!-- GENRE MATRIX (WIKIPEDIA INSPIRED) -->
+        <section id="genres" class="py-32 px-6 lg:px-24 bg-gradient-to-b from-storm-deep to-storm-blue">
+            <div class="flex flex-col items-center mb-20">
+                <span class="text-saffron font-bold uppercase tracking-[0.5em] text-[10px]">Encyclopedic Discipline</span>
+                <h2 class="text-6xl font-black italic mt-2 uppercase tracking-tighter">The Genre Matrix</h2>
+                <p class="text-xs text-white/40 mt-4 max-w-xl text-center uppercase tracking-widest">Mixing and Mastering is the discipline. Genre is the language. Our 7.1.4 environment is calibrated for every frequency spectrum.</p>
+            </div>
+            
+            <div class="genre-grid flex flex-wrap justify-center gap-2 max-w-7xl mx-auto">
+                <span>Bhakti</span><span>Hindustani Classical</span><span>Kirtan</span><span>Bhajan</span><span>Ghazal</span>
+                <span>Jazz</span><span>Bebop</span><span>Fusion</span><span>Swing</span><span>Progressive Rock</span>
+                <span>Hard Rock</span><span>Heavy Metal</span><span>Grunge</span><span>Punk</span><span>Psychedelic</span>
+                <span>Pop</span><span>Alt-Pop</span><span>Synth-Pop</span><span>Indie</span><span>Soul</span><span>R&B</span>
+                <span>Hip-Hop</span><span>Trap</span><span>Lo-Fi</span><span>Boom Bap</span><span>House</span>
+                <span>Deep House</span><span>Techno</span><span>Trance</span><span>Ambient</span><span>Darkwave</span>
+                <span>Jungle</span><span>Drum & Bass</span><span>Dubstep</span><span>Afro House</span><span>Funk</span>
+                <span>Disco</span><span>Reggae</span><span>Ska</span><span>Orchestral</span><span>Cinematic Score</span>
+                <span>Foley</span><span>Industrial</span><span>Experimental</span><span>Noise</span>
+            </div>
+        </section>
+
+        <!-- PROJECTS REEL -->
         <section id="work" class="py-32 px-6 lg:px-24">
             <div class="flex justify-between items-end mb-16 border-b border-white/10 pb-8">
                 <div>
-                    <span class="text-saffron font-bold uppercase text-[10px] tracking-widest">Selected Works</span>
-                    <h2 class="text-5xl font-black italic">Studio Reel</h2>
+                    <span class="text-saffron font-bold uppercase text-[10px] tracking-widest">Studio Master Reels</span>
+                    <h2 class="text-5xl font-black italic uppercase">In Practice</h2>
                 </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <span class="text-saffron font-bold text-[10px]">01 / STUDIO MIX</span>
-                        <h3 class="text-2xl font-bold mt-2 mb-4">Studio Mix / Master</h3>
-                        <p class="text-white/50 text-sm mb-6">Direct showcase of transient response and dynamic headroom.</p>
-                    </div>
-                    <a href="https://youtube.com/shorts/fC86GeUzWa0?si=Q990CZvNBkDC-w8R" target="_blank" class="text-saffron font-bold text-xs uppercase flex items-center gap-2">Watch Project <span class="material-symbols-outlined">arrow_outward</span></a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="glass-panel p-10 rounded-2xl group border-l-4 border-saffron">
+                    <span class="text-saffron font-bold text-[10px]">01 / MIXING</span>
+                    <h3 class="text-3xl font-bold mt-2 mb-6 uppercase tracking-tighter">Studio Mix / Master</h3>
+                    <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="px-6 py-3 border border-white/20 inline-block font-bold text-[10px] uppercase hover:bg-saffron hover:text-storm-deep">Launch Project ↗</a>
                 </div>
-                <!-- Project 2 -->
-                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <span class="text-saffron font-bold text-[10px]">02 / MULTI-TRACK</span>
-                        <h3 class="text-2xl font-bold mt-2 mb-4">Project 02</h3>
-                        <p class="text-white/50 text-sm mb-6">Completed production mix focusing on instrument separation.</p>
-                    </div>
-                    <a href="https://youtu.be/1qf6HOfmsuU?si=IEkRkJ4o5Uck2sG2" target="_blank" class="text-saffron font-bold text-xs uppercase flex items-center gap-2">Watch Project <span class="material-symbols-outlined">arrow_outward</span></a>
-                </div>
-                <!-- Project 3 -->
-                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between group">
-                    <div>
-                        <span class="text-saffron font-bold text-[10px]">03 / VOCAL MASTER</span>
-                        <h3 class="text-2xl font-bold mt-2 mb-4">Project 03</h3>
-                        <p class="text-white/50 text-sm mb-6">Deep vocal restoration and harmonic saturation mastering.</p>
-                    </div>
-                    <a href="https://youtu.be/LjoI0eDMjiU?si=cFS3zZizGXKrxBx4" target="_blank" class="text-saffron font-bold text-xs uppercase flex items-center gap-2">Watch Project <span class="material-symbols-outlined">arrow_outward</span></a>
-                </div>
-                <!-- Immersive -->
-                <div class="glass-panel p-8 rounded-2xl flex flex-col justify-between bg-saffron/5 border-saffron/20">
-                    <div>
-                        <span class="text-saffron font-bold text-[10px]">04 / IMMERSIVE</span>
-                        <h3 class="text-2xl font-bold mt-2 mb-4">Atmos Render</h3>
-                        <p class="text-white/50 text-sm mb-6">3D Audio render available for testing upon request.</p>
-                    </div>
-                    <span class="text-white/20 font-bold text-xs uppercase italic">Spatial Suite</span>
+                <div class="glass-panel p-10 rounded-2xl group border-l-4 border-white/10">
+                    <span class="text-white/40 font-bold text-[10px]">02 / RESTORATION</span>
+                    <h3 class="text-3xl font-bold mt-2 mb-6 uppercase tracking-tighter">Project 02</h3>
+                    <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="px-6 py-3 border border-white/20 inline-block font-bold text-[10px] uppercase hover:bg-saffron hover:text-storm-deep">Launch Project ↗</a>
                 </div>
             </div>
         </section>
 
-        <!-- GENRE MATRIX (Bigger & More Extensive) -->
-        <section id="genres" class="py-32 px-6 lg:px-24 bg-gradient-to-b from-storm-deep to-storm-blue">
-            <div class="text-center mb-16">
-                <span class="text-saffron font-bold uppercase tracking-[0.5em] text-[10px]">Technical Range</span>
-                <h2 class="text-4xl font-black uppercase italic mt-2">The Genre Spectrum</h2>
-            </div>
-            <div class="flex flex-wrap justify-center gap-4 max-w-6xl mx-auto">
-                <!-- Heritage -->
-                <span class="genre-tag">Bhakti</span><span class="genre-tag">Kirtan</span><span class="genre-tag">Bhajan</span>
-                <span class="genre-tag">Hindustani Classical</span><span class="genre-tag">Carnatic</span>
-                <span class="genre-tag">Devotional Archival</span><span class="genre-tag">Ghazal</span><span class="genre-tag">Qawwali</span>
-                <!-- Contemporary -->
-                <span class="genre-tag">Rock</span><span class="genre-tag">Hard Rock</span><span class="genre-tag">Metal</span>
-                <span class="genre-tag">Progressive Rock</span><span class="genre-tag">Jazz</span><span class="genre-tag">Jazz Fusion</span>
-                <span class="genre-tag">Pop</span><span class="genre-tag">Alt-Pop</span><span class="genre-tag">Soul</span><span class="genre-tag">R&B</span>
-                <!-- Electronic -->
-                <span class="genre-tag">EDM</span><span class="genre-tag">House</span><span class="genre-tag">Deep House</span>
-                <span class="genre-tag">Techno</span><span class="genre-tag">Dubstep</span><span class="genre-tag">Drum & Bass</span>
-                <span class="genre-tag">Ambient</span><span class="genre-tag">Synthwave</span><span class="genre-tag">Vaporwave</span>
-                <span class="genre-tag">Lo-Fi</span><span class="genre-tag">Trap</span><span class="genre-tag">Hip-Hop</span><span class="genre-tag">Afro House</span>
-                <!-- Cinematic -->
-                <span class="genre-tag">Orchestral</span><span class="genre-tag">Choral</span><span class="genre-tag">Cinematic Score</span>
-                <span class="genre-tag">Foley</span><span class="genre-tag">Sound Design</span><span class="genre-tag">Industrial</span>
-            </div>
-        </section>
-
-        <!-- LIVE CONSOLE (With Old Hero Image shifted here) -->
-        <section id="live" class="py-32 px-6 lg:px-24 glass-panel mx-6 lg:mx-24 rounded-3xl mt-24">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- LIVE SESSIONS (Group Image Shifted Here) -->
+        <section id="live" class="py-32 px-6 lg:px-24 glass-panel mx-6 lg:mx-24 rounded-3xl mt-24 mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="relative h-[450px] rounded-2xl overflow-hidden border-2 border-white/5 group">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy7hbk40XHFaXqpDb2UA3mmUyOpAP52-aEr_CGnLdYTJNPANu5hRC9KrUop1prsQEs9RaXWPCJg2uByDtIHgob6ZN9RWnsBhRBZv-ds1hc4BJa_tT-_hFqbGkMz1MfeUKWHctUZG5uhr0kTzyGk2M7H8fYk49zVpo9DVBXA0ZtIju-DFWV9nUlGENx-NlnylygYcRKoKRoLnU6QpcGPbxLRL2hlcCnmVQHfk6KVKM" class="w-full h-full object-cover filter contrast-125 saturate-50 group-hover:saturate-100 transition-all duration-700" alt="Live Session">
+                    <div class="absolute inset-0 bg-gradient-to-t from-storm-deep via-transparent to-transparent"></div>
+                </div>
                 <div>
-                    <h2 class="text-3xl font-black uppercase mb-6">Live Archive</h2>
-                    <p class="text-white/50 text-sm mb-10 leading-relaxed">Direct soundboard engineering for live gatherings, broadcasts, and auditorium sessions. These sessions capture the raw energy of HKM Life gatherings.</p>
+                    <h2 class="text-4xl font-black uppercase mb-8 italic">Live Console Archives</h2>
+                    <p class="text-white/50 text-sm mb-12 leading-relaxed">Direct soundboard engineering for live broadcasts and kirtan gatherings. Preserving raw energy with clinical clarity.</p>
                     <div class="grid grid-cols-2 gap-3">
-                        <a href="https://www.youtube.com/live/J3LeMZdnugo" target="_blank" class="p-3 border border-white/10 rounded hover:border-saffron text-center text-[10px] font-bold">SESSION 01</a>
-                        <a href="https://www.youtube.com/live/MOSouZ8JE2g" target="_blank" class="p-3 border border-white/10 rounded hover:border-saffron text-center text-[10px] font-bold">SESSION 02</a>
-                        <a href="https://www.youtube.com/live/xpmOBGed_RY" target="_blank" class="p-3 border border-white/10 rounded hover:border-saffron text-center text-[10px] font-bold">SESSION 03</a>
-                        <a href="https://www.youtube.com/live/iG2RXgJevns" target="_blank" class="p-3 border border-white/10 rounded hover:border-saffron text-center text-[10px] font-bold">SESSION 04</a>
-                        <a href="https://www.youtube.com/live/lPyp24lVp9g" target="_blank" class="p-3 border border-white/10 rounded hover:border-saffron text-center text-[10px] font-bold">SESSION 05</a>
-                        <a href="https://www.youtube.com/live/dbtAzDSg8l0" target="_blank" class="p-3 border border-white/10 rounded hover:border-saffron text-center text-[10px] font-bold">SESSION 06</a>
+                        <a href="https://www.youtube.com/live/J3LeMZdnugo" target="_blank" class="p-4 border border-white/10 rounded font-bold text-[9px] hover:border-saffron text-center">SESSION 01</a>
+                        <a href="https://www.youtube.com/live/MOSouZ8JE2g" target="_blank" class="p-4 border border-white/10 rounded font-bold text-[9px] hover:border-saffron text-center">SESSION 02</a>
+                        <a href="https://www.youtube.com/live/xpmOBGed_RY" target="_blank" class="p-4 border border-white/10 rounded font-bold text-[9px] hover:border-saffron text-center">SESSION 03</a>
+                        <a href="https://www.youtube.com/live/iG2RXgJevns" target="_blank" class="p-4 border border-white/10 rounded font-bold text-[9px] hover:border-saffron text-center">SESSION 04</a>
+                        <a href="https://www.youtube.com/live/lPyp24lVp9g" target="_blank" class="p-4 border border-white/10 rounded font-bold text-[9px] hover:border-saffron text-center">SESSION 05</a>
+                        <a href="https://www.youtube.com/live/dbtAzDSg8l0" target="_blank" class="p-4 border border-white/10 rounded font-bold text-[9px] hover:border-saffron text-center">SESSION 06</a>
                     </div>
-                </div>
-                <!-- PREVIOUS HERO IMAGE (Group Kirtan) -->
-                <div>
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy7hbk40XHFaXqpDb2UA3mmUyOpAP52-aEr_CGnLdYTJNPANu5hRC9KrUop1prsQEs9RaXWPCJg2uByDtIHgob6ZN9RWnsBhRBZv-ds1hc4BJa_tT-_hFqbGkMz1MfeUKWHctUZG5uhr0kTzyGk2M7H8fYk49zVpo9DVBXA0ZtIju-DFWV9nUlGENx-NlnylygYcRKoKRoLnU6QpcGPbxLRL2hlcCnmVQHfk6KVKM" 
-                         class="w-full h-80 object-cover rounded-2xl vintage-photo" 
-                         alt="Live Session Atmosphere">
                 </div>
             </div>
         </section>
 
         <!-- CONTACT -->
         <section id="contact" class="py-40 px-6 text-center">
-            <div class="max-w-4xl mx-auto glass-panel p-20 rounded-[4rem] border-saffron/20 border">
-                <h2 class="text-6xl font-black logo-zigzag mb-10">INITIATE <br> THE RECORD.</h2>
-                <div class="flex flex-col md:flex-row justify-center gap-6">
-                    <a href="mailto:studio@thebsaf.com" class="px-12 py-5 bg-saffron text-storm-deep font-black rounded-full uppercase text-xs tracking-widest shadow-2xl">Email Studio</a>
-                    <a href="https://wa.me/917624822940" class="px-12 py-5 border border-saffron text-saffron font-black rounded-full uppercase text-xs tracking-widest">WhatsApp Founder</a>
+            <div class="max-w-5xl mx-auto glass-panel p-20 rounded-[4rem] border-saffron/20 border relative overflow-hidden">
+                <h2 class="text-7xl font-black logo-zigzag mb-10">INITIATE <br> TELEMETRY.</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-6 relative z-10">
+                    <a href="mailto:studio@thebsaf.com" class="px-14 py-6 bg-saffron text-storm-deep font-black rounded-sm uppercase text-xs tracking-widest shadow-2xl hover:bg-white transition-all">Direct Studio Mail</a>
+                    <a href="https://wa.me/917624822940" class="px-14 py-6 border-2 border-saffron text-saffron font-black rounded-sm uppercase text-xs tracking-widest hover:bg-saffron hover:text-storm-deep transition-all">WhatsApp Founder</a>
                 </div>
             </div>
         </section>
@@ -299,11 +285,11 @@
     <footer class="py-20 px-6 lg:px-24 glass-panel border-t border-white/5">
         <div class="flex flex-col md:flex-row justify-between items-center gap-10">
             <div class="flex flex-col items-center md:items-start">
-                <span class="logo-zigzag text-2xl">B—SAF</span>
-                <span class="text-[9px] font-bold text-saffron uppercase tracking-widest">HKM LIFE · Facility Engineering</span>
+                <span class="logo-zigzag text-3xl">B—SAF</span>
+                <span class="text-[9px] font-bold text-saffron uppercase tracking-widest">HKM LIFE · BHAKTIVEDANTA SURROUND</span>
             </div>
-            <p class="text-[10px] text-white/20 font-bold uppercase tracking-widest">
-                © 2024 Bhaktivedanta Surround Audio Facility | Lead Engineering by Founder
+            <p class="text-[10px] text-white/20 font-bold uppercase tracking-widest text-center">
+                © 2024 Bhaktivedanta Surround Audio Facility | Engineering by Founder
             </p>
         </div>
     </footer>
