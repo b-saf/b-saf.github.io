@@ -5,11 +5,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>BSAF — HKM Life | Bhaktivedanta Surround Audio Facility</title>
     
-    <!-- SEO & Metadata -->
-    <meta name="description" content="BSAF - Lead Engineering by Founder Bh. Souvik. 7.1.4 Dolby Atmos Surround Specialists. Professional Mixing, Mastering, and Archival Restoration at HKM Life.">
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;700;900&family=Manrope:wght@400;600;800&family=Space+Mono&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@400;800&family=Space+Mono&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,8 +17,7 @@
                 extend: {
                     colors: {
                         "saffron": "#FF9933",
-                        "storm-blue": "#1E3A5F",
-                        "storm-deep": "#0B132B",
+                        "storm-deep": "#070A10",
                     }
                 }
             }
@@ -29,233 +26,199 @@
 
     <style>
         body {
-            background-color: #070A10; /* Deeper obsidian from your screenshots */
+            background-color: #070A10;
             color: #F5EFE6;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
 
-        /* Satin Glossy White ZigZag Logo Effect */
-        .logo-zigzag {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 45%, #ffffff 55%, #94a3b8 100%);
+        /* LOGO BLEND: Glossy White + Sacred Saffron */
+        .logo-b {
+            color: #ffffff;
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(255,255,255,0.7), 0 0 30px rgba(255,255,255,0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.4));
-            letter-spacing: -1px;
         }
+        .logo-saf { color: #FF9933; font-weight: 800; }
 
-        /* HERO BACKGROUND (Trees/Temple context) */
+        /* HERO - LEGACY SIGNAL BLEND */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(11, 19, 43, 0.7), #070A10), 
-                              url('https://upload.wikimedia.org/wikipedia/commons/f/f4/Srila_Prabhupada_Ashram_Area_-_ISKCON_Campus_-_Mayapur_-_Nadia_2017-08-15_1935.JPG');
+            background-image: linear-gradient(to bottom, rgba(7, 10, 16, 0.4), #070A10), 
+                              url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoDDtn8t42HYtJhR5ek-h6MSobK7EfdvWniTwC2Y_-r0xFbNvDiw1tgmmEkTor0BW_f16k6CdR3Fw-4_DJg-Tq3rbrxvjGGDe7piJuIxQFvDxSP_w1NLdcBPWs74n02rvitfcMopzM3CzyBNoIFZl0vVudww4qb2J_jOMb2U-UZUmUVCvOnD2COcrkxYXLgHE3l4AeEj2d2JSRV_MX11GQVX6xtGhU23FO9TBi_HY');
             background-size: cover;
             background-position: center;
         }
 
-        /* HARDWARE CARDS (Matching your screenshot) */
-        .hardware-card {
-            background-color: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            overflow: hidden;
+        /* HARDWARE CARDS */
+        .gear-card {
+            background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.4s ease;
-            position: relative;
-            aspect-ratio: 4/5;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            border-radius: 20px;
         }
-        .hardware-card img {
-            width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(100%);
-        }
-        .hardware-card:hover { transform: translateY(-5px); border-color: #FF9933; }
-        .hardware-card:hover img { opacity: 0.5; filter: grayscale(0%); }
-        .hardware-label {
-            position: absolute; bottom: 20px; left: 20px;
-            font-size: 10px; font-weight: 800; color: #FF9933; letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        .gear-card:hover { transform: scale(1.02); border-color: #FF9933; }
+        .gear-img { width: 100%; height: 220px; object-fit: cover; opacity: 0.4; filter: contrast(1.2); }
+        .gear-card:hover .gear-img { opacity: 0.8; }
 
-        /* SERVICES DROPDOWN */
-        .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-menu { display: none; }
-
-        /* GENRE MATRIX */
-        .genre-grid span {
-            font-family: 'Space+Mono', monospace;
-            font-size: 12px;
-            padding: 10px 20px;
+        /* GENRE TAGS */
+        .genre-tag {
+            padding: 12px 24px;
+            background: rgba(255, 153, 51, 0.05);
             border: 1px solid rgba(255, 153, 51, 0.2);
-            background: rgba(255, 255, 255, 0.02);
-            transition: 0.3s;
+            font-size: 14px;
+            font-weight: 800;
+            color: #FF9933;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
         }
-        .genre-grid span:hover { background: #FF9933; color: #0B132B; border-color: #FF9933; }
 
         ::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="selection:bg-saffron selection:text-storm-deep">
+<body>
 
-    <!-- NAVIGATION -->
+    <!-- NAV -->
     <nav class="fixed top-0 w-full z-50 bg-[#070A10]/90 backdrop-blur-xl border-b border-white/5 h-20 px-6 lg:px-12 flex items-center justify-between">
-        <a href="/" class="flex flex-col group">
-            <span class="text-3xl logo-zigzag">B—SAF</span>
+        <a href="/" class="flex flex-col">
+            <div class="text-3xl tracking-tighter">
+                <span class="logo-b">B</span><span class="text-white/20">—</span><span class="logo-saf">SAF</span>
+            </div>
             <span class="text-[8px] uppercase tracking-[0.4em] text-saffron font-bold">HKM LIFE CONSOLE</span>
         </a>
 
-        <div class="hidden xl:flex gap-12 items-center text-[10px] font-bold uppercase tracking-widest text-white/60">
-            <div class="dropdown relative group cursor-pointer">
-                <span class="hover:text-saffron flex items-center gap-1">Services <span class="material-symbols-outlined text-[14px]">expand_more</span></span>
-                <div class="dropdown-menu absolute top-full left-0 w-64 bg-storm-deep border border-white/10 p-4 mt-2 shadow-2xl rounded-lg">
-                    <ul class="flex flex-col gap-4 text-[9px]">
-                        <li><a href="mailto:studio@thebsaf.com?subject=Demo" class="hover:text-saffron block">01 // Demo Project</a></li>
-                        <li><a href="mailto:studio@thebsaf.com?subject=Partnership" class="hover:text-saffron block">02 // Partnership</a></li>
-                        <li><a href="mailto:studio@thebsaf.com?subject=Full Song" class="hover:text-saffron block">03 // 5-Min Full Song</a></li>
-                        <li><a href="mailto:studio@thebsaf.com?subject=Shorts" class="hover:text-saffron block">04 // 1-Min Demo Shorts</a></li>
-                    </ul>
-                </div>
-            </div>
-            <a href="#work" class="hover:text-saffron">View Work</a>
-            <a href="#genres" class="hover:text-saffron">Genre Range</a>
-            <a href="#contact" class="hover:text-saffron">Contact</a>
+        <div class="hidden xl:flex gap-12 text-[10px] font-bold uppercase tracking-widest text-white/50">
+            <a href="#services" class="hover:text-saffron">Services</a>
+            <a href="#work" class="hover:text-saffron">Archive</a>
+            <a href="#genres" class="hover:text-saffron">Genres</a>
         </div>
 
-        <div class="flex items-center gap-4">
-            <div class="hidden sm:flex flex-col text-right mr-4 pr-4 border-r border-white/10">
-                <span class="text-[9px] font-mono text-saffron">STATUS: ONLINE</span>
-                <span class="text-[10px] font-bold uppercase">HKM LIFE FACILITY</span>
-            </div>
-            <button id="drawer-btn" class="w-12 h-12 rounded-full bg-saffron flex items-center justify-center shadow-lg hover:scale-110 transition-all">
-                <span class="material-symbols-outlined text-storm-deep font-black">menu</span>
-            </button>
-        </div>
+        <button id="drawer-btn" class="w-12 h-12 rounded-full bg-saffron flex items-center justify-center shadow-lg hover:scale-110 transition-all">
+            <span class="material-symbols-outlined text-storm-deep font-black">person</span>
+        </button>
     </nav>
 
-    <!-- FOUNDER DRAWER (WITH YOUR PORTRAIT) -->
-    <div id="backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[60] hidden"></div>
-    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-[#070A10] z-[70] translate-x-full transition-transform duration-500 p-10 flex flex-col border-l border-white/10">
-        <div class="flex justify-between items-center mb-8">
-            <span class="logo-zigzag text-2xl">B—SAF</span>
-            <button id="close-drawer" class="material-symbols-outlined text-white/40">close</button>
-        </div>
+    <!-- FOUNDER DRAWER (Right Corner Profile) -->
+    <div id="backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] hidden"></div>
+    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-[#070A10] z-[70] translate-x-full transition-transform duration-500 p-10 border-l border-white/5 flex flex-col">
+        <button id="close-drawer" class="self-end material-symbols-outlined text-white/20 hover:text-saffron mb-8">close</button>
         
-        <!-- FOUNDER PHOTO SECTION -->
-        <div class="relative w-full h-80 rounded-2xl overflow-hidden mb-6 border border-white/10">
-            <!-- REPLACE 'founder.jpg' with your actual filename if you renamed it, 
-                 otherwise it will look for the portrait you uploaded if named similarly -->
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHXbZ00uF2i-X9O7Wp3D3O_U6X-Lz5e3Y9i1W-2S0m6N7P8A9B" class="w-full h-full object-cover" alt="Founder Bh. Souvik">
+        <div class="relative w-full h-80 rounded-2xl overflow-hidden border border-white/10 mb-8">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHXbZ00uF2i-X9O7Wp3D3O_U6X-Lz5e3Y9i1W-2S0m6N7P8A9B" class="w-full h-full object-cover" alt="Bh. Souvik">
             <div class="absolute inset-0 bg-gradient-to-t from-[#070A10] to-transparent"></div>
         </div>
 
         <div class="space-y-6">
-            <span class="text-saffron font-bold text-xs uppercase tracking-[0.3em]">Founder & Lead Engineer</span>
-            <h3 class="text-3xl font-black italic">Bh. Souvik</h3>
-            <p class="text-sm text-white/50 leading-relaxed">Direct facility access. Specialized in high-performance spatial translation and archival restoration.</p>
+            <h3 class="text-4xl font-black italic logo-b">Bh. Souvik</h3>
+            <div class="space-y-1">
+                <p class="text-saffron font-bold text-xs uppercase tracking-widest">Founder / Head Engineer / Raaga Composer</p>
+                <p class="text-white/40 text-[10px] uppercase tracking-widest">HKM Life Surround Facility</p>
+            </div>
+            <p class="text-sm text-white/60 leading-relaxed italic">"Blending the innocent purity of the sacred signal with the clinical gravity of industry-grade surround audio."</p>
             
-            <div class="pt-6 border-t border-white/10">
-                <p class="text-[10px] text-white/30 uppercase mb-4">Direct Telemetry</p>
-                <a href="mailto:studio@thebsaf.com" class="text-lg font-bold block hover:text-saffron">studio@thebsaf.com</a>
-                <a href="https://wa.me/917624822940" class="text-lg font-bold block mt-2 hover:text-saffron">+91 7624822940</a>
+            <div class="pt-8 border-t border-white/5 space-y-4">
+                <a href="mailto:studio@thebsaf.com" class="block text-lg font-bold hover:text-saffron tracking-tight">studio@thebsaf.com</a>
+                <a href="https://wa.me/917624822940" class="block text-lg font-bold hover:text-saffron tracking-tight">+91 7624822940</a>
             </div>
         </div>
     </aside>
 
     <main>
-        <!-- HERO (Matching your screenshot 3) -->
+        <!-- HERO -->
         <section class="hero-bg min-h-screen flex items-center px-6 lg:px-24 pt-20">
             <div class="max-w-4xl">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="w-2 h-2 bg-saffron rounded-full"></span>
-                    <span class="text-xs font-mono tracking-widest text-white/60">01 / BSAF</span>
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="w-3 h-3 bg-saffron rounded-full animate-pulse"></span>
+                    <span class="text-xs font-bold uppercase tracking-[0.4em] text-saffron">Lead Facility Engineering</span>
                 </div>
-                <h1 class="text-7xl lg:text-[10rem] font-black logo-zigzag leading-[0.85] mb-4">B—SAF</h1>
-                <p class="text-xs font-bold tracking-[0.5em] text-white uppercase mb-10">Bhaktivedanta Surround Audio Facility</p>
-                
-                <div class="space-y-2 mb-12">
-                    <h2 class="text-2xl lg:text-3xl font-light tracking-widest uppercase">Mixing Engineer / Mastering Editor</h2>
-                    <h2 class="text-2xl lg:text-3xl font-light tracking-widest uppercase text-white/40">Vocal Production / Restoration / ATMOS</h2>
-                </div>
-
+                <h1 class="text-7xl lg:text-[10rem] font-black leading-[0.8] mb-12">
+                    <span class="logo-b">LEGACY</span> <br> <span class="italic text-saffron">SIGNAL.</span>
+                </h1>
+                <p class="text-xl lg:text-2xl text-white/80 max-w-2xl font-light leading-relaxed mb-12">
+                    The Bhaktivedanta Surround Audio Facility is a boutique engineering house specializing in **7.1.4 Dolby Atmos** and **DTS:X** immersive environments.
+                </p>
                 <div class="flex gap-4">
-                    <a href="#work" class="px-8 py-4 border border-saffron text-saffron font-bold uppercase text-[10px] tracking-widest hover:bg-saffron hover:text-storm-deep transition-all">View Work ↘</a>
-                    <a href="#contact" class="px-8 py-4 border border-white/20 text-white font-bold uppercase text-[10px] tracking-widest hover:bg-white hover:text-storm-deep transition-all">Contact →</a>
-                </div>
-
-                <div class="mt-20 max-w-lg">
-                    <p class="text-sm text-white/50 leading-relaxed">
-                        Professional audio engineering with a particular depth in bhakti, bhajan, kirtan and Bhaktivedanta material — with a broad working range across contemporary, rock, jazz, and orchestral music.
-                    </p>
-                    <p class="text-[10px] text-saffron font-bold mt-6 tracking-widest uppercase">Fully Remote • Selected On-Site Sessions</p>
+                    <a href="#work" class="px-10 py-5 bg-saffron text-storm-deep font-black uppercase text-xs tracking-widest rounded-sm">Jump to Projects</a>
+                    <a href="#contact" class="px-10 py-5 border-2 border-saffron text-saffron font-black uppercase text-xs tracking-widest rounded-sm">Initiate Record</a>
                 </div>
             </div>
         </section>
 
-        <!-- HARDWARE CONSOLE RAIL (Matching your screenshot 2) -->
-        <section class="py-24 px-6 lg:px-24 bg-[#070A10]">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="hardware-card">
-                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04" alt="SSL">
-                    <span class="hardware-label">SSL Logic Summing</span>
+        <!-- ANALOG HARDWARE RAIL -->
+        <section class="py-32 px-6 lg:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Maag EQ -->
+                <div class="gear-card">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070" class="gear-img" alt="SSL">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">SSL Logic Summing</span></div>
                 </div>
-                <div class="hardware-card">
-                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0" alt="Tube">
-                    <span class="hardware-label">Tube Condenser Path</span>
+                <!-- UA 1176 -->
+                <div class="gear-card">
+                    <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070" class="gear-img" alt="Tube">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Universal Audio 1176 Path</span></div>
                 </div>
-                <div class="hardware-card">
-                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81" alt="Analog">
-                    <span class="hardware-label">Analog Tape Azimuth</span>
+                <!-- Fairchild -->
+                <div class="gear-card">
+                    <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1?q=80&w=2029" class="gear-img" alt="Fairchild">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Fairchild 670 Variable-Mu</span></div>
                 </div>
-                <div class="hardware-card">
-                    <img src="https://images.unsplash.com/photo-1557683311-eac922347aa1" alt="FET">
-                    <span class="hardware-label">FET Compression Rail</span>
+                <!-- Studer -->
+                <div class="gear-card">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=2070" class="gear-img" alt="Tape">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Studer Analog Tape Azimuth</span></div>
+                </div>
+                <!-- Pultec -->
+                <div class="gear-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070" class="gear-img" alt="Pultec">
+                    <div class="p-6"><span class="text-[10px] font-bold text-saffron uppercase">Pultec Program Equalization</span></div>
+                </div>
+                <!-- Console -->
+                <div class="gear-card border-saffron/30 bg-saffron/5">
+                    <div class="p-12 flex flex-col items-center justify-center text-center h-full">
+                        <span class="material-symbols-outlined text-saffron text-6xl mb-4">surround_sound</span>
+                        <h4 class="text-xl font-bold uppercase italic">Surround Suite</h4>
+                        <p class="text-[10px] text-white/40 mt-2">7.1.4 Native Calibration</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- GENRE MATRIX (Wikipedia Extended) -->
-        <section id="genres" class="py-32 px-6 lg:px-24 border-y border-white/5">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-black italic uppercase tracking-tighter">The Genre Matrix</h2>
-            </div>
-            <div class="genre-grid flex flex-wrap justify-center gap-3 max-w-6xl mx-auto">
-                <span>Bhakti</span><span>Hindustani Classical</span><span>Kirtan</span><span>Bhajan</span><span>Ghazal</span>
-                <span>Jazz</span><span>Fusion</span><span>Swing</span><span>Progressive Rock</span>
-                <span>Hard Rock</span><span>Heavy Metal</span><span>Grunge</span><span>Punk</span><span>Psychedelic</span>
-                <span>Pop</span><span>Synth-Pop</span><span>Indie</span><span>Soul</span><span>R&B</span>
-                <span>Hip-Hop</span><span>Trap</span><span>Lo-Fi</span><span>Boom Bap</span><span>House</span>
-                <span>Deep House</span><span>Techno</span><span>Trance</span><span>Ambient</span><span>Darkwave</span>
-                <span>Jungle</span><span>Drum & Bass</span><span>Dubstep</span><span>Afro House</span><span>Funk</span>
-                <span>Disco</span><span>Reggae</span><span>Orchestral</span><span>Industrial</span><span>Experimental</span>
+        <section id="genres" class="py-32 px-6 lg:px-24 bg-white/5">
+            <h2 class="text-5xl font-black italic uppercase tracking-tighter mb-16 text-center">The Genre Spectrum</h2>
+            <div class="flex flex-wrap justify-center gap-3 max-w-7xl mx-auto">
+                <span class="genre-tag">Bhakti</span><span class="genre-tag">Kirtan</span><span class="genre-tag">Bhajan</span><span class="genre-tag">Hindustani Classical</span><span class="genre-tag">Carnatic</span><span class="genre-tag">Dhrupad</span><span class="genre-tag">Ghazal</span><span class="genre-tag">Qawwali</span><span class="genre-tag">Jazz</span><span class="genre-tag">Bebop</span><span class="genre-tag">Fusion</span><span class="genre-tag">Progressive Rock</span><span class="genre-tag">Hard Rock</span><span class="genre-tag">Heavy Metal</span><span class="genre-tag">Grunge</span><span class="genre-tag">Psychedelic</span><span class="genre-tag">Pop</span><span class="genre-tag">Synth-Pop</span><span class="genre-tag">Indie</span><span class="genre-tag">Soul</span><span class="genre-tag">R&B</span><span class="genre-tag">Hip-Hop</span><span class="genre-tag">Trap</span><span class="genre-tag">Lo-Fi</span><span class="genre-tag">House</span><span class="genre-tag">Techno</span><span class="genre-tag">Trance</span><span class="genre-tag">Ambient</span><span class="genre-tag">Jungle</span><span class="genre-tag">Drum & Bass</span><span class="genre-tag">Afro House</span><span class="genre-tag">Funk</span><span class="genre-tag">Orchestral</span><span class="genre-tag">Cinematic</span><span class="genre-tag">Industrial</span><span class="genre-tag">Experimental</span><span class="genre-tag">Noise</span><span class="genre-tag">Folk</span><span class="genre-tag">Reggae</span><span class="genre-tag">Vaporwave</span>
             </div>
         </section>
 
-        <!-- STUDIO REEL -->
+        <!-- PROJECTS -->
         <section id="work" class="py-32 px-6 lg:px-24">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div class="p-10 bg-white/5 rounded-3xl border border-white/10 group hover:border-saffron transition-all">
-                    <span class="text-saffron font-bold text-[10px] uppercase tracking-widest">Project 01 // Mix</span>
-                    <h3 class="text-3xl font-bold mt-4 mb-6 uppercase">Studio Mix / Master</h3>
-                    <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="text-xs font-bold flex items-center gap-2">LAUNCH PROJECT <span class="material-symbols-outlined">arrow_outward</span></a>
+                <div class="p-12 glass-panel border border-white/5 rounded-3xl hover:border-saffron transition-all">
+                    <span class="text-saffron font-bold text-[10px] uppercase">Studio Master</span>
+                    <h3 class="text-4xl font-bold mt-4 mb-8">STUDIO MIX / MASTER</h3>
+                    <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase tracking-widest hover:bg-saffron hover:text-storm-deep">Launch Reel ↗</a>
                 </div>
-                <div class="p-10 bg-white/5 rounded-3xl border border-white/10 group hover:border-saffron transition-all">
-                    <span class="text-saffron font-bold text-[10px] uppercase tracking-widest">Project 02 // Restoration</span>
-                    <h3 class="text-3xl font-bold mt-4 mb-6 uppercase">Tape Archive Recovery</h3>
-                    <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="text-xs font-bold flex items-center gap-2">LAUNCH PROJECT <span class="material-symbols-outlined">arrow_outward</span></a>
+                <div class="p-12 glass-panel border border-white/5 rounded-3xl hover:border-saffron transition-all">
+                    <span class="text-saffron font-bold text-[10px] uppercase">Restoration</span>
+                    <h3 class="text-4xl font-bold mt-4 mb-8">TAPE RECOVERY</h3>
+                    <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="px-8 py-3 border border-white/20 inline-block font-bold text-xs uppercase tracking-widest hover:bg-saffron hover:text-storm-deep">Launch Reel ↗</a>
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER (Matching your screenshot 1) -->
-        <footer class="py-24 px-6 lg:px-24 border-t border-white/5 text-center">
-            <div class="max-w-4xl mx-auto">
-                <span class="logo-zigzag text-5xl lg:text-7xl block mb-6">B—SAF</span>
-                <p class="text-saffron font-bold tracking-[0.4em] uppercase text-sm mb-16">
-                    HKM LIFE • BHAKTIVEDANTA SURROUND
-                </p>
-                <div class="text-white/20 font-bold uppercase tracking-[0.2em] text-[10px] space-y-4">
-                    <p>© 2024 BHAKTIVEDANTA SURROUND AUDIO FACILITY</p>
-                    <p class="border-l border-white/10 inline-block pl-4 ml-4">ENGINEERING BY FOUNDER</p>
-                </div>
+        <!-- CONTACT -->
+        <footer id="contact" class="py-40 px-6 text-center border-t border-white/5">
+            <span class="logo-b text-5xl lg:text-8xl block mb-6 uppercase">B—SAF</span>
+            <p class="text-saffron font-bold tracking-[0.5em] uppercase text-sm mb-16">HKM LIFE • BHAKTIVEDANTA SURROUND</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-20">
+                <a href="mailto:studio@thebsaf.com" class="px-14 py-6 bg-saffron text-storm-deep font-black rounded-sm uppercase text-xs tracking-widest shadow-2xl">Email Studio</a>
+                <a href="https://wa.me/917624822940" class="px-14 py-6 border border-saffron text-saffron font-black rounded-sm uppercase text-xs tracking-widest hover:bg-saffron hover:text-storm-deep transition-all">WhatsApp Founder</a>
             </div>
+            <p class="text-white/20 font-bold uppercase tracking-[0.3em] text-[10px]">© 2024 BHAKTIVEDANTA SURROUND AUDIO FACILITY | LEAD ENGINEERING BY FOUNDER</p>
         </footer>
     </main>
 
