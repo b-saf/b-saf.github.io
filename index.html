@@ -1,237 +1,917 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>BSAF — HKM Life | Bhaktivedanta Surround Audio Facility</title>
-    
-    <!-- Professional Infrastructure -->
-    <meta name="description" content="BSAF - Lead Engineering by Founder Bh. Souvik. 7.1.4 Dolby Atmos Surround Specialists. Mixing, Mastering, and Archival Restoration.">
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Manrope:wght@600;800&family=Space+Mono&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "saffron": "#FF9933",
-                        "thunder-blue": "#0F1E32",
-                        "liquid-white": "#FFFFFF"
-                    }
-                }
-            }
-        };
-    </script>
+<html class="scroll-smooth" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>B-SAF // SONIC ATELIER — World-Class Spatial &amp; Analog Mastering</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Outfit:wght@300..900&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>
+@layer base {
+  html, body { margin:0; padding:0; }
+  body { overscroll-behavior:none; }
+  main > :first-child { margin-top:0!important; }
+  main > :last-child { margin-bottom:0!important; }
+}
+::-webkit-scrollbar { display:none; }
 
-    <style>
-        body { background: #FFFFFF; color: #0F1E32; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        
-        /* LOGO: Glossy White B + Saffron SAF */
-        .logo-b { 
-            color: #FFFFFF; font-weight: 900; 
-            text-shadow: 0 4px 10px rgba(0,0,0,0.15); 
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .logo-saf { color: #FF9933; font-weight: 800; }
+@keyframes eqBounce {
+  0%, 100% { height: 18%; }
+  50% { height: 95%; }
+}
+@keyframes eqBounce2 {
+  0%, 100% { height: 45%; }
+  50% { height: 12%; }
+}
+@keyframes eqBounce3 {
+  0%, 100% { height: 80%; }
+  50% { height: 28%; }
+}
+@keyframes vuSweep {
+  0% { transform: rotate(-24deg); }
+  50% { transform: rotate(18deg); }
+  70% { transform: rotate(4deg); }
+  100% { transform: rotate(-24deg); }
+}
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes tubeGlow {
+  0%, 100% { opacity: 0.75; filter: drop-shadow(0 0 15px rgba(255, 122, 0, 0.45)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 28px rgba(255, 122, 0, 0.85)); }
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.92); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 0.3; }
+  100% { transform: scale(0.92); opacity: 0.8; }
+}
 
-        /* LIQUID GLASS DESIGN */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(15, 30, 50, 0.05);
-        }
-
-        .project-card {
-            background: #FFFFFF;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-        .project-card:hover { transform: translateY(-10px); border-color: #FF9933; box-shadow: 0 30px 50px rgba(15, 30, 50, 0.1); }
-
-        .gear-img { width: 100%; height: 260px; object-fit: cover; opacity: 0.9; }
-
-        /* BUTTONS */
-        .btn-active { background: #FF9933; color: #0F1E32; font-weight: 900; text-transform: uppercase; padding: 12px 24px; border-radius: 8px; transition: 0.3s; }
-        .btn-active:hover { background: #0F1E32; color: #FFFFFF; transform: scale(1.05); }
-
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-thumb { background: #FF9933; border-radius: 10px; }
-    </style>
-</head>
-<body>
-
-    <!-- NAVIGATION CONSOLE -->
-    <nav class="fixed top-0 w-full z-50 glass-nav h-20 px-6 lg:px-12 flex items-center justify-between">
-        <a href="/" class="flex flex-col">
-            <div class="text-3xl tracking-tighter">
-                <span class="logo-b">B</span><span class="text-slate-300">—</span><span class="logo-saf">SAF</span>
-            </div>
-            <span class="text-[8px] uppercase tracking-[0.4em] text-saffron font-bold">HKM LIFE CONSOLE</span>
-        </a>
-
-        <div class="hidden xl:flex gap-10 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            <a href="#work" class="hover:text-saffron transition-colors">Studio Reel</a>
-            <a href="#live" class="hover:text-saffron transition-colors">Live Console</a>
-            <a href="#contact" class="hover:text-saffron transition-colors">Payments</a>
-        </div>
-
-        <button id="drawer-btn" class="w-12 h-12 rounded-full bg-thunder-blue flex items-center justify-center shadow-xl hover:bg-saffron transition-all group">
-            <span class="material-symbols-outlined text-white group-hover:text-thunder-blue">person</span>
-        </button>
-    </nav>
-
-    <!-- SIDEBAR: FOUNDER & SETTLEMENT -->
-    <div id="backdrop" class="fixed inset-0 bg-thunder-blue/40 backdrop-blur-md z-[60] hidden"></div>
-    <aside id="drawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-white z-[70] translate-x-full transition-transform duration-500 p-10 border-l border-slate-100 flex flex-col overflow-y-auto">
-        <button id="close-drawer" class="self-end material-symbols-outlined text-slate-300 hover:text-saffron mb-8">close</button>
-        
-        <div class="relative w-full aspect-square rounded-3xl overflow-hidden mb-8 border-4 border-slate-50 shadow-xl">
-            <img src="founder.jpg" class="w-full h-full object-cover" alt="Bh. Souvik" onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=BS&backgroundColor=FF9933'">
-        </div>
-
-        <div class="space-y-6">
-            <h3 class="text-4xl font-black italic tracking-tighter text-thunder-blue">Bh. Souvik</h3>
-            <p class="text-saffron font-bold text-xs uppercase tracking-widest">Founder / Head Engineer / Raaga Composer</p>
-            
-            <!-- PAYMENT HUB -->
-            <div class="p-6 bg-slate-50 rounded-[2rem] border border-slate-100 space-y-6">
-                <p class="text-[10px] font-black text-slate-400 uppercase text-center tracking-widest">Global Settlement</p>
-                <div class="space-y-3">
-                    <a href="upi://pay?pa=7624822940@upi&pn=BhSouvik" class="flex items-center justify-between p-4 bg-white border rounded-xl hover:border-saffron">
-                        <span class="text-xs font-bold uppercase">Instant UPI / GPay</span>
-                        <span class="material-symbols-outlined text-saffron">qr_code_2</span>
-                    </a>
-                    <a href="https://www.paypal.com" target="_blank" class="flex items-center justify-between p-4 bg-white border rounded-xl hover:border-saffron">
-                        <span class="text-xs font-bold uppercase">Global PayPal</span>
-                        <span class="material-symbols-outlined text-blue-600">payments</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="pt-8 space-y-2 border-t">
-                <p class="text-xs font-bold text-thunder-blue">studio@thebsaf.com</p>
-                <p class="text-xs font-bold text-thunder-blue">+91 7624822940</p>
-            </div>
-        </div>
-    </aside>
-
-    <main class="pt-20">
-        <!-- HERO -->
-        <section class="relative min-h-[80vh] flex items-center px-6 lg:px-24">
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.squarespace-cdn.com/content/v1/592473f337c5819d9b62f831/1585860613867-XF8IWB5D83J88M8P1X2E/SP-harmonium.jpg" class="w-full h-full object-cover opacity-[0.08] grayscale" alt="Heritage">
-            </div>
-            <div class="max-w-4xl relative z-10">
-                <h1 class="text-7xl lg:text-[9rem] font-black text-thunder-blue leading-[0.85] mb-8 tracking-tighter">
-                    LEGACY <br> <span class="italic text-saffron">SIGNAL.</span>
-                </h1>
-                <p class="text-xl text-slate-500 max-w-xl font-light leading-relaxed mb-10">
-                    The Bhaktivedanta Surround Audio Facility is a boutique engineering house specializing in **7.1.4 Dolby Atmos** at HKM Life.
-                </p>
-                <a href="#work" class="btn-active">Explore Projects</a>
-            </div>
-        </section>
-
-        <!-- STABLE GEAR RAIL (EXACTLY 3 IMAGES) -->
-        <section class="py-20 px-6 lg:px-24 bg-slate-50 border-y">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600" class="gear-img" alt="SSL">
-                    <div class="p-6 text-center font-bold text-[10px] text-saffron uppercase">SSL Logic Summing</div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=600" class="gear-img" alt="Mic">
-                    <div class="p-6 text-center font-bold text-[10px] text-saffron uppercase">Vocal Restoration Path</div>
-                </div>
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=600" class="gear-img" alt="Tape">
-                    <div class="p-6 text-center font-bold text-[10px] text-saffron uppercase">Analog Tape Azimuth</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- STUDIO PROJECTS (WITH THUMBNAILS) -->
-        <section id="work" class="py-32 px-6 lg:px-24">
-            <h2 class="text-4xl font-black uppercase italic mb-16 text-center">Studio Master Reels</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Card 1 -->
-                <a href="https://youtube.com/shorts/fC86GeUzWa0" target="_blank" class="project-card group">
-                    <div class="h-48 bg-thunder-blue flex items-center justify-center relative">
-                        <span class="material-symbols-outlined text-saffron text-5xl opacity-20 group-hover:opacity-100 transition-opacity">play_circle</span>
-                    </div>
-                    <div class="p-8">
-                        <span class="text-[10px] font-black text-saffron uppercase">Project 01 // Mix</span>
-                        <h4 class="text-xl font-bold mt-2">Studio Mix / Master ↗</h4>
-                    </div>
-                </a>
-                <!-- Card 2 -->
-                <a href="https://youtu.be/1qf6HOfmsuU" target="_blank" class="project-card group">
-                    <div class="h-48 bg-slate-200 flex items-center justify-center relative">
-                        <span class="material-symbols-outlined text-thunder-blue text-5xl opacity-20 group-hover:opacity-100 transition-opacity">play_circle</span>
-                    </div>
-                    <div class="p-8">
-                        <span class="text-[10px] font-black text-saffron uppercase">Project 02 // Restoration</span>
-                        <h4 class="text-xl font-bold mt-2">Tape Recovery Session ↗</h4>
-                    </div>
-                </a>
-                <!-- Card 3 (Atmos) -->
-                <div class="project-card bg-saffron/5 border-saffron/20">
-                    <div class="h-48 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-saffron text-6xl">surround_sound</span>
-                    </div>
-                    <div class="p-8">
-                        <span class="text-[10px] font-black text-saffron uppercase">Project 03 // Spatial</span>
-                        <h4 class="text-xl font-bold mt-2 italic">Dolby Atmos Render</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LIVE CONSOLE SESSIONS -->
-        <section id="live" class="py-24 px-6 lg:px-24 bg-thunder-blue text-white rounded-[3rem] mx-6 mb-32 shadow-2xl">
-            <h2 class="text-3xl font-black uppercase mb-12 flex items-center gap-4">
-                <span class="w-12 h-[1px] bg-saffron"></span> Live Sessions
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <a href="https://www.youtube.com/live/J3LeMZdnugo" target="_blank" class="p-4 border border-white/10 rounded-xl hover:border-saffron text-center text-[10px] font-bold">SESSION 01</a>
-                <a href="https://www.youtube.com/live/MOSouZ8JE2g" target="_blank" class="p-4 border border-white/10 rounded-xl hover:border-saffron text-center text-[10px] font-bold">SESSION 02</a>
-                <a href="https://www.youtube.com/live/xpmOBGed_RY" target="_blank" class="p-4 border border-white/10 rounded-xl hover:border-saffron text-center text-[10px] font-bold">SESSION 03</a>
-                <a href="https://www.youtube.com/live/iG2RXgJevns" target="_blank" class="p-4 border border-white/10 rounded-xl hover:border-saffron text-center text-[10px] font-bold">SESSION 04</a>
-                <a href="https://www.youtube.com/live/lPyp24lVp9g" target="_blank" class="p-4 border border-white/10 rounded-xl hover:border-saffron text-center text-[10px] font-bold">SESSION 05</a>
-                <a href="https://www.youtube.com/live/dbtAzDSg8l0" target="_blank" class="p-4 border border-white/10 rounded-xl hover:border-saffron text-center text-[10px] font-bold">SESSION 06</a>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="py-32 px-6 text-center border-t border-slate-100">
-            <span class="logo-b text-6xl lg:text-9xl block mb-6">B—SAF</span>
-            <p class="text-saffron font-bold tracking-[0.5em] uppercase text-sm mb-12">HKM LIFE • BHAKTIVEDANTA SURROUND</p>
-            <p class="text-[10px] font-bold text-slate-300 uppercase tracking-widest">© 2024 ALL RIGHTS RESERVED | LEAD ENGINEERING BY FOUNDER</p>
-        </footer>
-    </main>
-
-    <script>
-        const btn = document.getElementById('drawer-btn');
-        const closeBtn = document.getElementById('close-drawer');
-        const drawer = document.getElementById('drawer');
-        const backdrop = document.getElementById('backdrop');
-
-        function toggleDrawer() {
-            drawer.classList.toggle('translate-x-full');
-            backdrop.classList.toggle('hidden');
-        }
-
-        btn.addEventListener('click', toggleDrawer);
-        closeBtn.addEventListener('click', toggleDrawer);
-        backdrop.addEventListener('click', toggleDrawer);
-    </script>
-</body>
-</html>
+.animate-eq-1 { animation: eqBounce 1.2s ease-in-out infinite; }
+.animate-eq-2 { animation: eqBounce2 0.85s ease-in-out infinite 0.15s; }
+.animate-eq-3 { animation: eqBounce3 1.05s ease-in-out infinite 0.3s; }
+.animate-vu { transform-origin: bottom center; animation: vuSweep 2.8s ease-in-out infinite; }
+.animate-radar { transform-origin: center; animation: radarSweep 8s linear infinite; }
+.animate-tube { animation: tubeGlow 3.5s ease-in-out infinite; }
+.animate-spatial-ring { animation: pulseRing 4s ease-in-out infinite; }
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#314863", "on-background": "#1a1c1c", "on-secondary-container": "#51647c", "secondary-container": "#cee1fd", "surface-container-high": "#e8e8e8", "on-secondary": "#ffffff", "surface-container-highest": "#e2e2e2", "outline-variant": "#e0c0af", "on-primary-container": "#5c2800", "on-primary": "#ffffff", "secondary-fixed": "#d1e4ff", "surface-bright": "#f9f9f9", "background": "#f9f9f9", "on-primary-fixed": "#321200", "surface-variant": "#e2e2e2", "on-surface": "#1a1c1c", "inverse-primary": "#ffb68b", "error": "#ba1a1a", "primary": "#994700", "surface-container": "#eeeeee", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "on-surface-variant": "#584235", "secondary-fixed-dim": "#b5c8e3", "on-secondary-fixed": "#071d31", "surface-tint": "#994700", "tertiary-container": "#8aa2c1", "secondary": "#4d6077", "primary-fixed-dim": "#ffb68b", "tertiary-fixed-dim": "#b0c9e9", "primary-container": "#ff7a00", "on-error": "#ffffff", "on-tertiary-fixed": "#011d35", "inverse-on-surface": "#f0f1f1", "inverse-surface": "#2f3131", "outline": "#8c7263", "on-secondary-fixed-variant": "#35485e", "surface": "#f9f9f9", "on-primary-fixed-variant": "#753400", "tertiary": "#49607c", "error-container": "#ffdad6", "primary-fixed": "#ffdbc8", "surface-container-lowest": "#ffffff", "surface-dim": "#dadada", "tertiary-fixed": "#d1e4ff", "surface-container-low": "#f3f3f4", "on-tertiary-container": "#203852" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "margin": "3rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "margin-tablet": "2rem", "space-md": "1rem", "gutter-tablet": "1.25rem", "space-xs": "0.25rem", "margin-mobile": "1.25rem", "space-2xl": "4rem", "gutter-mobile": "1rem", "space-3xl": "6rem", "gutter": "1.5rem" }, "fontFamily": { "body-lg": [ "Hanken Grotesk" ], "title-lg": [ "Hanken Grotesk" ], "title-md": [ "Hanken Grotesk" ], "headline-lg-mobile": [ "Outfit" ], "display-hero": [ "Outfit" ], "label-telemetry": [ "Hanken Grotesk" ], "headline-sm": [ "Outfit" ], "body-md": [ "Hanken Grotesk" ], "headline-lg": [ "Outfit" ], "body-sm": [ "Hanken Grotesk" ], "display-hero-mobile": [ "Outfit" ], "label-sm": [ "Hanken Grotesk" ], "headline-md": [ "Outfit" ] }, "fontSize": { "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "title-lg": [ "1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "title-md": [ "1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" } ], "headline-lg-mobile": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.015em", "fontWeight": "500" } ], "display-hero": [ "4.5rem", { "lineHeight": "5rem", "letterSpacing": "-0.03em", "fontWeight": "600" } ], "label-telemetry": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.08em", "fontWeight": "700" } ], "headline-sm": [ "1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-lg": [ "3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.02em", "fontWeight": "500" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0.005em", "fontWeight": "400" } ], "display-hero-mobile": [ "2.75rem", { "lineHeight": "3.25rem", "letterSpacing": "-0.025em", "fontWeight": "600" } ], "label-sm": [ "0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.04em", "fontWeight": "600" } ], "headline-md": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.015em", "fontWeight": "500" } ] } } } };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen">
+<!-- PERSISTENT FULL-SITE BACKGROUND BACKDROP WITH WEBP IMAGE -->
+<div class="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+<img alt="B-SAF Atelier Ambient Atmosphere" class="fixed inset-0 w-full h-full object-cover object-center z-0 opacity-45 mix-blend-multiply filter contrast-125 saturate-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0D8uwG7pbsDOrzYv8VzUeQYqf_i6x4boRXDhizWodO3SN6MJTkgKIRys_ruJOR1FV6HT2voQAxOza58sSNJ479tNr75Q__DoKayqIoJGF5g_-5mRr1nPu2IDaosg1COpPQ1HJ2SCcTy8RYHodlMC-pvff5z3cuik7Ri72ECIJAUm-9-io-rIbU_KwsvxQcFMBSfNaN8PsqSlFSY1d2d__D_8f3ekwdsw2d5kmSgCzb3kv34k7n5Pu"/>
+<div class="fixed inset-0 bg-gradient-to-b from-white/92 via-slate-100/85 to-[#001428]/30 mix-blend-normal"></div>
+<div class="fixed top-24 -left-20 w-[600px] h-[600px] rounded-full bg-primary-container/15 blur-[140px] pointer-events-none"></div>
+<div class="fixed top-[45%] -right-20 w-[640px] h-[640px] rounded-full bg-[#1a304a]/25 blur-[160px] pointer-events-none"></div>
+<div class="fixed bottom-10 left-1/3 w-[500px] h-[500px] rounded-full bg-primary-fixed/30 blur-[130px] pointer-events-none"></div>
+</div>
+<header class="fixed top-0 left-0 w-full z-50 bg-white/85 backdrop-blur-2xl border-b border-white/60 shadow-[0_4px_30px_rgba(0,20,40,0.06)]"><div class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg flex-shrink-0"><a class="flex items-center gap-space-md group" data-path="portfolio-discography" href="#"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase group-hover:text-primary transition-colors">B-SAF</span><span class="h-2 w-2 rounded-full bg-primary-container animate-ping"></span><span class="font-headline-sm text-headline-sm font-light text-secondary tracking-widest">SONIC ATELIER</span></div><div class="flex items-center gap-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold">Bhaktivedanta Surround Audio Facility</span></div></div></a><span class="hidden xl:inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-telemetry text-label-telemetry uppercase shadow-[0_0_12px_rgba(255,122,0,0.25)]"><span class="h-1.5 w-1.5 rounded-full bg-primary-container animate-pulse"></span>INDEPENDENT MASTERING ATELIER</span></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold rounded-full"><a class="px-space-md py-space-xs rounded-full font-title-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-white/80 transition-all hover:scale-105" data-path="master-suite-9-1-6" href="#suite-916">Master Suite 9.1.6</a><a class="px-space-md py-space-xs rounded-full font-title-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-white/80 transition-all hover:scale-105" data-path="analog-chain-gear" href="#analog-vault">Analog Chain &amp; Gear</a><a class="px-space-md py-space-xs rounded-full font-title-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-white/80 transition-all hover:scale-105" data-path="portfolio-discography" href="#discography">Portfolio &amp; Discography</a><a class="px-space-md py-space-xs rounded-full font-title-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-white/80 transition-all hover:scale-105" data-path="acoustic-specs" href="#audition">Audition Room</a><a class="px-space-md py-space-xs rounded-full font-title-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-white/80 transition-all hover:scale-105" data-path="session-rates-booking" href="#session-commissions">Mastering Inquiry</a></nav><div class="flex items-center gap-space-sm">
+<!-- Currency Selector Dropdown -->
+<div class="relative group"><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-white/80 border border-slate-200/80 hover:bg-white hover:text-on-surface text-on-surface-variant transition-all font-label-telemetry text-label-telemetry uppercase shadow-sm" type="button"><span class="material-symbols-outlined text-[16px] text-primary">currency_exchange</span><span>USD ($)</span><span class="material-symbols-outlined text-[14px] group-hover:rotate-180 transition-transform">expand_more</span></button><div class="absolute right-0 top-full mt-2 w-52 rounded-xl bg-white/95 backdrop-blur-2xl border border-white shadow-[0_20px_50px_rgba(0,20,40,0.15)] p-space-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold">Settlement Currency</div><div class="grid grid-cols-1 gap-1"><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg bg-primary-fixed/40 text-on-surface font-title-md text-body-sm" href="#"><span>USD — United States</span><span class="font-label-telemetry text-label-telemetry text-primary font-bold">$</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-slate-100 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span>EUR — Eurozone</span><span class="font-label-telemetry text-label-telemetry font-bold">€</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-slate-100 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span>GBP — British Pound</span><span class="font-label-telemetry text-label-telemetry font-bold">£</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-slate-100 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span>JPY — Japanese Yen</span><span class="font-label-telemetry text-label-telemetry font-bold">¥</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-slate-100 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span>INR — Indian Rupee</span><span class="font-label-telemetry text-label-telemetry font-bold">₹</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-slate-100 text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-colors" href="#"><span>CHF — Swiss Franc</span><span class="font-label-telemetry text-label-telemetry font-bold">Fr.</span></a></div></div></div>
+<!-- Multi-Channel Connectivity Dropdown -->
+<div class="relative group hidden sm:block"><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-white/80 border border-slate-200/80 hover:bg-white hover:text-on-surface text-on-surface-variant transition-all font-label-telemetry text-label-telemetry uppercase shadow-sm" type="button"><span class="material-symbols-outlined text-[16px] text-secondary">forum</span><span>Channels</span><span class="material-symbols-outlined text-[14px] group-hover:rotate-180 transition-transform">expand_more</span></button><div class="absolute right-0 top-full mt-2 w-72 rounded-xl bg-white/95 backdrop-blur-2xl border border-white shadow-[0_20px_50px_rgba(0,20,40,0.15)] p-space-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold">Direct Encrypted Lines</div><div class="grid grid-cols-1 gap-1"><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-secondary-container/40 text-on-surface transition-colors" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank"><span class="flex items-center gap-space-xs font-title-md text-body-sm"><span class="material-symbols-outlined text-[18px] text-secondary">send</span>Telegram VIP</span><span class="font-label-telemetry text-label-telemetry text-primary font-bold">@SonicMastering</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-primary-fixed/40 text-on-surface transition-colors" href="tel:+18007664254"><span class="flex items-center gap-space-xs font-title-md text-body-sm"><span class="material-symbols-outlined text-[18px] text-primary">call</span>WhatsApp Stems</span><span class="font-label-telemetry text-label-telemetry text-on-surface-variant">+1 Hotline</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-tertiary-container/40 text-on-surface transition-colors" href="#"><span class="flex items-center gap-space-xs font-title-md text-body-sm"><span class="material-symbols-outlined text-[18px] text-tertiary">headset_mic</span>Discord Atmos</span><span class="font-label-telemetry text-label-telemetry text-on-surface-variant">SonicAtelier#916</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-error-container/40 text-on-surface transition-colors" href="#"><span class="flex items-center gap-space-xs font-title-md text-body-sm"><span class="material-symbols-outlined text-[18px] text-error">smart_display</span>YouTube Stems</span><span class="font-label-telemetry text-label-telemetry text-on-surface-variant">A/B Sessions</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg hover:bg-slate-100 text-on-surface transition-colors" href="#"><span class="flex items-center gap-space-xs font-title-md text-body-sm"><span class="material-symbols-outlined text-[18px] text-on-surface">terminal</span>GitHub DSP Tools</span><span class="font-label-telemetry text-label-telemetry text-on-surface-variant">Open Source</span></a></div></div></div>
+<a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-full bg-primary-container text-on-primary-container font-title-md text-body-sm uppercase tracking-wider shadow-[0_8px_24px_rgba(255,122,0,0.35)] hover:shadow-[0_12px_32px_rgba(255,122,0,0.55)] hover:bg-primary hover:text-on-primary transition-all active:scale-95 hover:-translate-y-0.5" data-path="session-rates-booking" href="#session-commissions"><span class="material-symbols-outlined text-[18px] mr-1.5 animate-spin" style="animation-duration: 9s;">tune</span>Initiate Master</a>
+<!-- PROMINENT PROFILE DROPDOWN MENU FOR OWNER / FOUNDER & CHIEF MASTERING ENGINEER -->
+<div class="relative group">
+<button aria-label="Lead Engineer &amp; Founder Console" class="flex items-center gap-1.5 p-1 pr-2.5 rounded-full bg-white/90 border border-primary-container/40 shadow-[0_4px_16px_rgba(255,122,0,0.2)] hover:border-primary-container hover:shadow-[0_6px_22px_rgba(255,122,0,0.35)] transition-all" type="button">
+<div class="relative w-8 h-8 rounded-full bg-gradient-to-tr from-primary to-primary-container flex items-center justify-center text-white shadow-md overflow-hidden">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white"></span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:rotate-180 transition-transform">expand_more</span>
+</button>
+<!-- Interactive Profile Dropdown Console -->
+<div class="absolute right-0 top-full mt-2 w-80 sm:w-96 rounded-2xl bg-white/95 backdrop-blur-2xl border border-white/90 shadow-[0_24px_60px_rgba(0,20,40,0.22)] p-space-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex flex-col gap-space-sm">
+<div class="flex items-start gap-space-sm pb-space-sm border-b border-slate-200/80">
+<div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary via-primary-container to-[#001428] flex items-center justify-center text-white shadow-lg relative flex-shrink-0">
+<span class="material-symbols-outlined text-[30px]">graphic_eq</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-[8px] font-bold">✓</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-lg text-title-md font-bold text-on-surface">Chief Mastering Engineer</span>
+</div>
+<span class="font-label-telemetry text-label-telemetry text-primary font-bold uppercase">Founder // Sonic Atelier &amp; B-SAF Lab</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant mt-0.5">Apple Digital Masters &amp; Dolby Atmos 9.1.6 Calibrator</span>
+</div>
+</div>
+<!-- Credentials & Lineage Badges -->
+<div class="grid grid-cols-2 gap-1.5 text-label-sm font-label-telemetry">
+<div class="p-2 rounded-lg bg-slate-100/80 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>AES Member #49821</span>
+</div>
+<div class="p-2 rounded-lg bg-slate-100/80 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">album</span>
+<span>1,200+ Masters</span>
+</div>
+<div class="p-2 rounded-lg bg-slate-100/80 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">spatial_audio</span>
+<span>Dolby Curve D Cert</span>
+</div>
+<div class="p-2 rounded-lg bg-slate-100/80 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">bolt</span>
+<span>&lt; 8m Telegram VIP</span>
+</div>
+</div>
+<p class="font-body-sm text-label-sm text-on-surface-variant bg-slate-50/90 p-2.5 rounded-lg border border-slate-200/60 leading-relaxed">
+      "Mastering is sacred stewardship of acoustic truth. From Vrindavan temple chants to raw techno and symphonic scores, our console preserves every micro-dynamic nuance."
+    </p>
+<!-- Quick Direct Founder Action Links -->
+<div class="flex flex-col gap-1 pt-1">
+<a class="flex items-center justify-between p-2 rounded-xl bg-primary-container/15 hover:bg-primary-container text-on-primary-container hover:text-white transition-all font-title-md text-label-sm font-bold" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">send</span> Direct Telegram VIP
+        </span>
+<span class="font-label-telemetry text-[11px]">@SonicMastering →</span>
+</a>
+<a class="flex items-center justify-between p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-on-surface transition-all font-title-md text-label-sm font-semibold" href="tel:+18007664254">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">call</span> WhatsApp Direct Audio
+        </span>
+<span class="font-label-telemetry text-[11px] text-on-surface-variant">+1 Atelier Line</span>
+</a>
+<a class="flex items-center justify-between p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-on-surface transition-all font-title-md text-label-sm font-semibold" href="#session-commissions">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">receipt_long</span> Request Custom Stem Evaluation
+        </span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div></div></div></header>
+<main class="w-full pt-20 relative z-10">
+<div class="flex flex-col w-full relative">
+<div class="relative z-10 w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin flex flex-col gap-space-3xl pb-space-3xl">
+<!-- HERO SECTION -->
+<section class="pt-space-xl pb-space-lg flex flex-col gap-space-xl">
+<!-- Live Status & Telemetry Strip with Kinetic Motion -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pb-space-sm">
+<div class="inline-flex items-center gap-space-sm px-space-md py-1.5 rounded-full bg-white/85 backdrop-blur-xl border border-white/90 shadow-sm text-on-surface hover:shadow-md transition-shadow">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="font-label-telemetry text-label-telemetry uppercase tracking-wider text-on-surface font-bold">ATELIER MASTERING ONLINE</span>
+<span class="text-outline-variant font-light">/</span>
+<!-- Dynamic Mini EQ Bar Animation in Badge -->
+<div class="flex items-end gap-0.5 h-3.5 w-7 px-0.5">
+<span class="w-1 bg-primary-container rounded-sm animate-eq-1"></span>
+<span class="w-1 bg-primary rounded-sm animate-eq-2"></span>
+<span class="w-1 bg-secondary rounded-sm animate-eq-3"></span>
+</div>
+<span class="font-label-telemetry text-label-telemetry text-on-surface-variant">DSP LOAD: 14.2%</span>
+<span class="text-outline-variant font-light">/</span>
+<span class="font-label-telemetry text-label-telemetry text-primary font-bold">MONITOR: 9.1.6 CALIBRATED</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-telemetry text-label-telemetry uppercase text-secondary bg-white/70 backdrop-blur-md px-space-md py-1.5 rounded-full border border-white/60">
+<span class="material-symbols-outlined text-[16px] text-primary animate-pulse">sensors</span>
+<span>True Peak Target: -0.1 dBTP</span>
+<span class="mx-1 text-surface-container-highest">•</span>
+<span>Apple ADM Certified #9042</span>
+</div>
+</div>
+<!-- Hero Header & Monolithic Title -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-primary text-on-primary font-label-telemetry text-label-telemetry uppercase shadow-sm">01 / BSAF FACILITY</span>
+<span class="font-label-telemetry text-label-telemetry uppercase tracking-widest text-[#001428] font-bold">BHAKTIVEDANTA SURROUND AUDIO FACILITY</span>
+</div>
+<h1 class="font-display-hero text-display-hero tracking-tight text-on-surface uppercase leading-none drop-shadow-sm">
+  PRECISION <span class="text-primary underline decoration-primary-container decoration-wavy decoration-2 underline-offset-8">ANALOG</span> WARMTH MEETS <span class="text-secondary hover:text-primary transition-colors">9.1.6 SPATIAL</span> MASTERY.
+</h1>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-md backdrop-blur-md bg-white/80 border border-white/90 p-space-lg rounded-2xl shadow-[0_16px_36px_-6px_rgba(0,20,40,0.1)] hover:shadow-2xl transition-all duration-300">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+  B-SAF / Sonic Atelier unites transcendent spiritual acoustic traditions with surgical analog outboard and Dolby Atmos 9.1.6 immersive physics. Handcrafted stems for recording artists, orchestral masters, and visionary producers worldwide.
+</p>
+<div class="flex items-center justify-between pt-space-xs border-t border-slate-200/60">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Response Window</span>
+<span class="font-title-md text-title-md text-primary font-bold flex items-center gap-1">&lt; 8 Mins Direct <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span></span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Dynamic Range</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">DR14+ Preserved</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Multi-Channel Direct Contact & Dispatch Hub -->
+<div class="w-full backdrop-blur-md bg-white/80 border border-white/90 p-space-md rounded-2xl shadow-[0_12px_40px_-10px_rgba(0,20,40,0.12)] flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary animate-pulse">satellite_alt</span>
+<span class="font-label-telemetry text-label-telemetry uppercase tracking-wider text-on-surface font-bold">Direct Atelier Dispatch Hub // Live Encrypted Stems Routing</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase hidden md:inline">24/7 Global Stems Drop Active</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-xs">
+<!-- Telegram -->
+<a class="group flex items-center gap-space-sm p-space-sm rounded-xl bg-white/70 hover:bg-white border border-slate-200/60 text-on-surface transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm font-semibold truncate group-hover:text-primary transition-colors">Telegram VIP</span>
+<span class="font-label-telemetry text-label-sm text-on-surface-variant truncate">@SonicMastering</span>
+</div>
+</a>
+<!-- WhatsApp -->
+<a class="group flex items-center gap-space-sm p-space-sm rounded-xl bg-white/70 hover:bg-white border border-slate-200/60 text-on-surface transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md" href="tel:+18007664254">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm font-semibold truncate group-hover:text-primary transition-colors">WhatsApp Audio</span>
+<span class="font-label-telemetry text-label-sm text-on-surface-variant truncate">+1 800-SONIC-LINE</span>
+</div>
+</a>
+<!-- Discord -->
+<a class="group flex items-center gap-space-sm p-space-sm rounded-xl bg-white/70 hover:bg-white border border-slate-200/60 text-on-surface transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md" href="#">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">headset_mic</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm font-semibold truncate group-hover:text-primary transition-colors">Discord Lounge</span>
+<span class="font-label-telemetry text-label-sm text-on-surface-variant truncate">SonicAtelier #916</span>
+</div>
+</a>
+<!-- YouTube -->
+<a class="group flex items-center gap-space-sm p-space-sm rounded-xl bg-white/70 hover:bg-white border border-slate-200/60 text-on-surface transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md" href="#">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">smart_display</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm font-semibold truncate group-hover:text-primary transition-colors">YouTube Video</span>
+<span class="font-label-telemetry text-label-sm text-on-surface-variant truncate">Master Stems A/B</span>
+</div>
+</a>
+<!-- GitHub -->
+<a class="group flex items-center gap-space-sm p-space-sm rounded-xl bg-white/70 hover:bg-white border border-slate-200/60 text-on-surface transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md col-span-2 sm:col-span-1" href="#">
+<div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-on-surface group-hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-sm font-semibold truncate group-hover:text-primary transition-colors">GitHub DSP</span>
+<span class="font-label-telemetry text-label-sm text-on-surface-variant truncate">AI DSP Schemas</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- SECTION 1: INTERACTIVE BEFORE/AFTER AUDITIONING SUITE -->
+<section class="flex flex-col gap-space-lg" id="audition">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-telemetry text-label-telemetry text-primary uppercase font-bold tracking-widest">// CRITICAL AUDITION ROOM</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">REAL-TIME A/B MASTER MONITOR</h2>
+</div>
+<div class="flex items-center gap-space-sm bg-white/80 border border-white/80 p-1.5 rounded-full shadow-sm">
+<span class="font-label-sm text-label-sm px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-bold">TARGET: -14.0 LUFS INTEGRATED</span>
+<span class="font-label-sm text-label-sm px-space-sm py-1 text-on-surface-variant font-semibold">ITU-R BS.1770-4 COMPLIANT</span>
+</div>
+</div>
+<!-- Mastering Playhead Rack -->
+<div class="w-full backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-xl shadow-[0_20px_50px_-12px_rgba(0,20,40,0.12)] grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Visualizer & Dynamic Waveform Matrix -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary to-primary-container text-white flex items-center justify-center shadow-lg animate-tube">
+<span class="material-symbols-outlined text-[28px]">graphic_eq</span>
+</div>
+<div>
+<span class="font-title-md text-title-md text-on-surface font-bold block">Hare Krishna Maha-Mantra (Spatial Kirtan Hymn)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Live Vrindavan Temple Harmonium, Mridanga &amp; 32 Choral Voices</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-telemetry text-label-telemetry font-bold">24-BIT / 96KHZ</span>
+<span class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-telemetry text-label-telemetry font-bold">ADM 9.1.6</span>
+</div>
+</div>
+<!-- Dynamic Animated Waveform Display with EQ Frequency spectrum -->
+<div class="relative w-full h-36 bg-slate-900 rounded-xl p-space-sm flex items-center justify-center overflow-hidden shadow-inner border border-slate-800">
+<!-- Dynamic Animated Spectrum Bars in Background -->
+<div class="absolute inset-0 flex items-end justify-between px-4 pb-2 opacity-25 pointer-events-none">
+<span class="w-1.5 bg-primary rounded-t animate-eq-1"></span>
+<span class="w-1.5 bg-primary-container rounded-t animate-eq-2"></span>
+<span class="w-1.5 bg-amber-400 rounded-t animate-eq-3"></span>
+<span class="w-1.5 bg-cyan-400 rounded-t animate-eq-1" style="animation-delay: 0.4s;"></span>
+<span class="w-1.5 bg-primary rounded-t animate-eq-2" style="animation-delay: 0.2s;"></span>
+<span class="w-1.5 bg-primary-container rounded-t animate-eq-3" style="animation-delay: 0.6s;"></span>
+<span class="w-1.5 bg-amber-300 rounded-t animate-eq-1" style="animation-delay: 0.1s;"></span>
+<span class="w-1.5 bg-cyan-300 rounded-t animate-eq-2" style="animation-delay: 0.5s;"></span>
+<span class="w-1.5 bg-primary-container rounded-t animate-eq-3" style="animation-delay: 0.3s;"></span>
+<span class="w-1.5 bg-primary rounded-t animate-eq-1" style="animation-delay: 0.7s;"></span>
+</div>
+<svg class="w-full h-full text-slate-600/50 relative z-10" preserveaspectratio="none" viewbox="0 0 800 120">
+<!-- Unmastered flat envelope -->
+<path d="M 0 60 Q 50 40 100 60 T 200 60 T 300 45 T 400 65 T 500 55 T 600 70 T 700 50 T 800 60 L 800 120 L 0 120 Z" fill="currentColor" opacity="0.3"></path>
+<!-- Mastered punchy analog envelope -->
+<path class="text-primary-container" d="M 0 60 Q 30 15 60 60 T 120 20 T 180 65 T 240 10 T 300 60 T 360 15 T 420 70 T 480 18 T 540 62 T 600 22 T 660 75 T 720 15 T 780 65 T 800 60" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+<!-- Glowing Peak points -->
+<circle class="fill-amber-400 animate-pulse" cx="240" cy="10" r="5"></circle>
+<circle class="fill-amber-400 animate-pulse" cx="480" cy="18" r="5"></circle>
+<circle class="fill-amber-400 animate-pulse" cx="720" cy="15" r="5"></circle>
+</svg>
+<!-- Playhead scrubber with pulse -->
+<div class="absolute left-1/3 top-0 bottom-0 w-0.5 bg-primary-container shadow-[0_0_16px_rgba(255,122,0,1)] flex flex-col justify-between items-center z-20">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container -mt-1 shadow-md animate-ping absolute"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary -mt-1 shadow-md relative"></span>
+<span class="font-label-telemetry text-label-sm bg-primary text-white font-bold px-1.5 py-0.5 rounded shadow mb-1">02:18.44</span>
+</div>
+<!-- Loudness telemetry badge in visualizer -->
+<div class="absolute top-2 right-2 bg-slate-900/90 border border-slate-700/80 px-space-sm py-1 rounded-full text-slate-200 font-label-telemetry text-label-telemetry flex items-center gap-2 z-20 shadow-md">
+<span class="h-2 w-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>DYNAMIC RANGE: 14.8 LU</span>
+</div>
+</div>
+<!-- Transport scrubber & Track Stems breakdown -->
+<div class="flex items-center justify-between text-on-surface-variant font-label-telemetry text-label-telemetry">
+<span>00:00.00</span>
+<div class="flex items-center gap-space-md">
+<span class="text-primary font-bold">12 STEMS ROUTED: [HARMONIUM | MRIDANGA (L/R) | KARTALS | LEAD VOCAL | 8x CHOIR AMBIENCE]</span>
+</div>
+<span>06:42.10</span>
+</div>
+</div>
+<!-- Interactive A/B Toggle & Hardware Animated Meters -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg bg-slate-100/90 border border-slate-200/80 p-space-lg rounded-2xl shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-on-surface uppercase font-bold">Master Signal State</span>
+<span class="font-label-telemetry text-label-telemetry px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold flex items-center gap-1"><span class="h-1.5 w-1.5 rounded-full bg-primary animate-ping"></span>ANALOG STAGE ACTIVE</span>
+</div>
+<!-- The Saffron A/B Hardware Rocker Switch -->
+<div class="grid grid-cols-2 p-1.5 rounded-full bg-slate-200/80 shadow-inner">
+<button class="py-space-sm rounded-full font-title-md text-body-sm text-on-surface-variant hover:text-on-surface transition-all flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+<span>A // RAW MIX (FLAT)</span>
+</button>
+<button class="py-space-sm rounded-full bg-primary-container text-on-primary-container shadow-[0_4px_16px_rgba(255,122,0,0.35)] font-title-md text-body-sm font-bold flex items-center justify-center gap-space-xs scale-100 transition-all hover:bg-primary hover:text-white" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>B // BSAF MASTER (PUNCH)</span>
+</button>
+</div>
+<!-- Analog VU Animated Needle & Dual Meters -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-xs">
+<!-- Left Channel Meter with animated pulse bar -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant font-semibold">
+<span>CH-L</span>
+<span class="font-bold text-on-surface">-13.8 LUFS</span>
+</div>
+<div class="w-full bg-slate-300 rounded-full h-3 overflow-hidden flex shadow-inner">
+<div class="bg-gradient-to-r from-amber-500 to-primary-container h-full rounded-full transition-all duration-300 animate-pulse" style="width: 82%;"></div>
+</div>
+</div>
+<!-- Right Channel Meter -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant font-semibold">
+<span>CH-R</span>
+<span class="font-bold text-on-surface">-13.9 LUFS</span>
+</div>
+<div class="w-full bg-slate-300 rounded-full h-3 overflow-hidden flex shadow-inner">
+<div class="bg-gradient-to-r from-amber-500 to-primary-container h-full rounded-full transition-all duration-300 animate-pulse" style="width: 80%;"></div>
+</div>
+</div>
+<!-- Phase Correlation -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant font-semibold">
+<span>PHASE</span>
+<span class="font-bold text-primary">+0.94 CORR</span>
+</div>
+<div class="w-full bg-slate-300 rounded-full h-3 overflow-hidden flex shadow-inner">
+<div class="bg-gradient-to-r from-secondary to-primary-container h-full rounded-full transition-all duration-300" style="width: 95%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: DISCOGRAPHY ACROSS ALL TRADITIONS & GENRES -->
+<section class="flex flex-col gap-space-lg" id="discography">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-telemetry text-label-telemetry text-primary uppercase font-bold tracking-widest">// GLOBAL REPERTOIRE ARCHIVE</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">FEATURED DISCOGRAPHY</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+  Bridging sacred devotional kirtan and temple acoustics with contemporary jazz, symphonic cinema, hip-hop, and avant-garde club productions.
+</p>
+</div>
+<div class="flex items-center gap-space-xs font-label-telemetry text-label-telemetry text-secondary bg-white/80 border border-white/80 px-space-md py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+<span class="font-bold">OVER 1,200 ALBUMS MASTERED FOR GLOBAL STREAMING &amp; VINYL</span>
+</div>
+</div>
+<!-- 6-Block Portfolio Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Album 1: Bhakti & Devotional -->
+<div class="group backdrop-blur-md bg-white/80 border border-white/90 p-space-lg rounded-2xl shadow-md hover:shadow-[0_20px_45px_rgba(255,122,0,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div class="flex flex-col gap-space-md">
+<div class="relative w-full h-52 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
+<img alt="Sacred Bhakti Kirtan Master Stems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAumqqN23Dq70ttXE9rYdp3kiACfZs336i-fMpEu2DvV5ufYbp09-983F2ja3WRgAoeKswkagammxuXASt_IBvyxWsY2-2hmK50tU83rQrYzJTPtnhDe67bTaPEFtZVp5tHiwicvxPxVhhHQijAvaixGrd_7dEUfJOS1nIPgcU_zFLxupRG_GvoNhJ6wOvvm-2WFV4FTIWJRww8Zo8ICDcPh2wppjgxPaOBbmTDd_pGBDYhgsfQoCkZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/90 via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-space-sm py-0.5 rounded-full bg-primary text-on-primary font-label-telemetry text-label-telemetry uppercase font-bold shadow-md">SACRED BHAKTI / KIRTAN</span>
+<span class="absolute bottom-3 right-3 px-space-sm py-0.5 rounded-full bg-white/90 backdrop-blur-md text-on-surface font-label-telemetry text-label-telemetry font-semibold">9.1.6 ATMOS + VINYL 33RPM</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-primary transition-colors">Radha Kunda Dawn Meditations</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Acoustic sitar, bamboo flute, vocal chant layers recorded live in Govardhan, mastered via Studer A820 half-inch magnetic tape for warm, organic low-frequency envelope.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md bg-slate-50/90 border border-slate-200/60 px-space-md py-space-xs rounded-xl">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">DYNAMIC: DR15 • 192kHz/24</span>
+<a class="font-title-md text-body-sm text-primary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#session-commissions">
+  Audition Stems <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Album 2: Neo-Classical & Orchestral -->
+<div class="group backdrop-blur-md bg-white/80 border border-white/90 p-space-lg rounded-2xl shadow-md hover:shadow-[0_20px_45px_rgba(0,20,40,0.12)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div class="flex flex-col gap-space-md">
+<div class="relative w-full h-52 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Cinematic symphonic orchestra performing in a modern architectural wood concert hall with soft dramatic amber rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAalHvcwNXuODbJmyHDCEYVjdkC-MXH4Jmfbz0poCasUyIbc0a7IYxGjkOcihJJdbgf_I15EmYCQoBPF5lHhrreXoxZwTV14Fv8epg2R12i6DPoP5u0fUom3_fKjqC_OxdqxXWt2fyunktQx71g-SzUZh6O_1-JT3aRuXxilqjItKrTEMggY2qFEJB168vKVaAsKxyYSm1tTQbpHBrjcqyto8z_qKqE9unQAtbRGMI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/90 via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-space-sm py-0.5 rounded-full bg-secondary text-on-secondary font-label-telemetry text-label-telemetry uppercase font-bold shadow-md">ORCHESTRAL &amp; SCORE</span>
+<span class="absolute bottom-3 right-3 px-space-sm py-0.5 rounded-full bg-white/90 backdrop-blur-md text-on-surface font-label-telemetry text-label-telemetry font-semibold">SONY 360 REALITY AUDIO</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-primary transition-colors">The Solitude of Indra (Symphonic Suite)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">84-piece philharmonic ensemble mastered with Maselec MEA-2 precision analog equalization and pristine DSD 11.2MHz stem routing.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md bg-slate-50/90 border border-slate-200/60 px-space-md py-space-xs rounded-xl">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">DYNAMIC: DR17 • DSD256</span>
+<a class="font-title-md text-body-sm text-primary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#session-commissions">
+  Audition Stems <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Album 3: Modern Afro House & Melodic Techno -->
+<div class="group backdrop-blur-md bg-white/80 border border-white/90 p-space-lg rounded-2xl shadow-md hover:shadow-[0_20px_45px_rgba(255,122,0,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div class="flex flex-col gap-space-md">
+<div class="relative w-full h-52 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist abstract acoustic sculpture rendered in brushed warm copper and deep blue glass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPD0Pn-sZzOvkW9Bt16iaZzx2tW8yIFx7Z3cDDGJDVd3HRa6Nqw8rZViGWotvExz274ZgLTpBbwfIKycQL2-VJY-Py5548vScssep0mRHR-3lGkKjNDfzdpQ7veATdffTkkNQSOF5qoap11r1zUktIehy18cppMyzj6EuuJ870C3ROEvdn3CNTAZuhxf_C_lblPCyh6iv3m0f6032cGIebJAe_doqpK124MIRN9ao"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/90 via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-space-sm py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-telemetry text-label-telemetry uppercase font-bold shadow-md">AFRO HOUSE / CLUB</span>
+<span class="absolute bottom-3 right-3 px-space-sm py-0.5 rounded-full bg-white/90 backdrop-blur-md text-on-surface font-label-telemetry text-label-telemetry font-semibold">CLUB SUB-BASS PHASE ALIGNED</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-primary transition-colors">Savannah Pulse EP</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Heavy analog low-end consolidation with SSL G-Bus &amp; Pultec EQP-1A sub punch calibration. Zero mud, punchy sub-harmonics for festival sound systems.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md bg-slate-50/90 border border-slate-200/60 px-space-md py-space-xs rounded-xl">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">TARGET: CLUB SPECS • WAV 24/48</span>
+<a class="font-title-md text-body-sm text-primary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#session-commissions">
+  Audition Stems <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Album 4: Modal Jazz & Acoustic Trio -->
+<div class="group backdrop-blur-md bg-white/80 border border-white/90 p-space-lg rounded-2xl shadow-md hover:shadow-[0_20px_45px_rgba(0,20,40,0.12)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div class="flex flex-col gap-space-md">
+<div class="relative w-full h-52 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Double bass and upright piano in a dim smoky boutique studio with glowing warm vacuum tube equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9wjWscI4PP-uuMLDteFS3i46KS2xGbgbBMyYX80aZaIO4gTNQJ_W-yLTAdLXgjWs6JJsCiqgUIrddHUPi5-BxsZ6t9SwAZe7iYx6ObTMgK11GkQajN7uUnSrZRx4yLe3DPGniRSp2xBxIt3VrYUo2JHil4W4Moy5svtmjEYe6VCgnDexZ5wPOQYS0R19u6h6jpwdjRjNtqXWrRaQDS1v_BpvkKMlG6AUMpwosda8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/90 via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-telemetry text-label-telemetry uppercase font-bold shadow-md">MODAL JAZZ &amp; ACOUSTIC</span>
+<span class="absolute bottom-3 right-3 px-space-sm py-0.5 rounded-full bg-white/90 backdrop-blur-md text-on-surface font-label-telemetry text-label-telemetry font-semibold">AUDIOPHILE DDP MASTER</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-primary transition-colors">Vrindavan Moonlight Sessions</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Acoustic bass micro-dynamics and brushed snare harmonics brought forward with Fairchild 670 tube density and Weiss linear phase transparency.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md bg-slate-50/90 border border-slate-200/60 px-space-md py-space-xs rounded-xl">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">DYNAMIC: DR14 • 96kHz/24</span>
+<a class="font-title-md text-body-sm text-primary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#session-commissions">
+  Audition Stems <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Album 5: Hip-Hop & Modern Trap Vocals -->
+<div class="group backdrop-blur-md bg-white/80 border border-white/90 p-space-lg rounded-2xl shadow-md hover:shadow-[0_20px_45px_rgba(255,122,0,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div class="flex flex-col gap-space-md">
+<div class="relative w-full h-52 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Macro close-up of a high-end vintage gold-sputtered condenser microphone in a vocal booth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtH8pWQXfgf476kp-3olCLYiiRanjuWnHfKIBK_RNXTQxVQttg-c_7CbSbfYiMYCpFGiZRhSSG3ssFJ65OdwPJ3Tmkv19k1mFIckwQWJ9DMIapo3hPjhSKs0EfUZDUSQ00Jk70j-BzYyg6SykAfaxgS4w-kblrGN2oBzmNg9G5STbQJCN7iHciJZq8uGRZKsdC_VDxX71CzP3LlXBgfPUeb6MQ0bIbX5X0LUCJ4IM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/90 via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-telemetry text-label-telemetry uppercase font-bold shadow-md">HIP-HOP &amp; VOCALS</span>
+<span class="absolute bottom-3 right-3 px-space-sm py-0.5 rounded-full bg-white/90 backdrop-blur-md text-on-surface font-label-telemetry text-label-telemetry font-semibold">CRISP AIR BAND &amp; TRUE PEAK</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-primary transition-colors">Chronicles of the Seeker</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Lead vocals sculpted through 1176 Limiting Amplifier and Mäag EQ4 40kHz Air Band for silken presence that floats on 808 sub-weight.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md bg-slate-50/90 border border-slate-200/60 px-space-md py-space-xs rounded-xl">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">CALIBRATED • STEMS MIX</span>
+<a class="font-title-md text-body-sm text-primary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#session-commissions">
+  Audition Stems <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Album 6: Ambient Binaural Soundbath -->
+<div class="group backdrop-blur-md bg-white/80 border border-white/90 p-space-lg rounded-2xl shadow-md hover:shadow-[0_20px_45px_rgba(0,20,40,0.12)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div class="flex flex-col gap-space-md">
+<div class="relative w-full h-52 rounded-xl overflow-hidden bg-slate-900 shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Tibetan singing bowls and quartz crystal sound vessels in sunlit sanctuary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKzxh-cRb8wnKLBbKGwqtQDOUCCe3H2svZHamOxTpCiSAAswwpx5wVGH5iY5NIt8VbaymhaadwPUucYQMX9XlY3KEWGoLypIFEQhwgWwgKUl0-jJpxXjWdIFCS4iwKs8B0QFGgNIf3_qE7YG94-wF281Ya8VW6Iqb_dYbvrpdZrvSkTWP797wjwsVfqiu8pzDbmk_9KlBQjTQquzjEcH31dc0sAdecIh6RjN72rYA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/90 via-transparent to-transparent"></div>
+<span class="absolute top-3 left-3 px-space-sm py-0.5 rounded-full bg-tertiary text-on-tertiary font-label-telemetry text-label-telemetry uppercase font-bold shadow-md">BINAURAL IMMERSIVE</span>
+<span class="absolute bottom-3 right-3 px-space-sm py-0.5 rounded-full bg-white/90 backdrop-blur-md text-on-surface font-label-telemetry text-label-telemetry font-semibold">SPATIAL HEADPHONE TUNED</span>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-primary transition-colors">432Hz Sacred Resonance Chants</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Psychoacoustic phase optimization and head-related transfer function (HRTF) rendering for transformative deep meditation listening.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md bg-slate-50/90 border border-slate-200/60 px-space-md py-space-xs rounded-xl">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">DYNAMIC: DR18 • ADM BWF</span>
+<a class="font-title-md text-body-sm text-primary font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#session-commissions">
+  Audition Stems <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: ANALOG MASTERING CHAIN & HARDWARE ARSENAL -->
+<section class="flex flex-col gap-space-lg" id="analog-vault">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-telemetry text-label-telemetry text-primary uppercase font-bold tracking-widest">// THE HARDWARE VAULT</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">ANALOG CHAIN &amp; OUTBOARD ARSENAL</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+  Hand-wired point-to-point tube circuits, custom discrete transformers, and mastering tape transports calibrated weekly to 0.05 dB matching.
+</p>
+</div>
+<div class="flex items-center gap-space-xs font-label-telemetry text-label-telemetry px-space-md py-space-xs rounded-full bg-white/80 border border-white/80 text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary animate-pulse">thermostat</span>
+<span class="font-bold">VALVE OPERATING TEMP: 48.2°C NOMINAL</span>
+</div>
+</div>
+<!-- Outboard Gear Mosaic -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg">
+<!-- Gear 1: Studer A820 Tape Deck (Feature 7 Cols) -->
+<div class="md:col-span-7 backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-lg shadow-lg flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="h-2 w-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-telemetry text-label-telemetry text-on-surface-variant uppercase font-bold">ANALOG TAPE TRANSFER ENGINE</span>
+</div>
+<span class="font-label-telemetry text-label-telemetry text-primary font-bold">1/2-INCH MASTER DECK</span>
+</div>
+<div class="relative w-full h-64 rounded-xl overflow-hidden bg-slate-900 group shadow-inner">
+<img alt="Studer Analog Master Tape Console" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAnvRtEmLMLwhlys5fqpesPN_se80pySWJPzE09ImNc6LGKBF18C9naLfCBJL74NV6Ahlt2rTwFAPCDa-K1XZsQSOJ2kFE01T46VSMFnDmezR57EOmbKnqkPKtq_5m0vG76SyX_K7Ru0mqM8xSPyLw2Us_EGv-fjn2-sYgDnyPYCsRdl3LLay8WQEVTj8H7whfVtMvpP6OxDraIoM0c87eAY2lPrEoi5vIECQlJ4-INI6Qw-ohbXeK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-space-sm py-1 rounded-lg shadow">
+<span class="font-title-md text-body-sm font-bold text-on-surface">Studer A820 1/2" Master Recorder</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-sm pt-space-xs">
+<div class="p-space-sm rounded-xl bg-slate-100/90 border border-slate-200/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase font-semibold">TAPE SPEED</span>
+<span class="font-title-md text-body-sm font-bold text-on-surface">30 IPS &amp; 15 IPS</span>
+</div>
+<div class="p-space-sm rounded-xl bg-slate-100/90 border border-slate-200/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase font-semibold">FLUXIVITY</span>
+<span class="font-title-md text-body-sm font-bold text-on-surface">510 nWb/m CCIR</span>
+</div>
+<div class="p-space-sm rounded-xl bg-slate-100/90 border border-slate-200/60">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase font-semibold">HEAD ALIGNMENT</span>
+<span class="font-title-md text-body-sm font-bold text-primary">Azimuth ±0.01°</span>
+</div>
+</div>
+</div>
+<!-- Gear 2: Custom Fairchild 670 Vacuum Tube Limiter (Feature 5 Cols) -->
+<div class="md:col-span-5 backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-lg shadow-lg flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-telemetry text-label-telemetry text-on-surface-variant uppercase font-bold">VARIABLE-MU TUBE COMPRESSOR</span>
+</div>
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">20 TUBES / 14 TRANSFORMERS</span>
+</div>
+<div class="relative w-full h-64 rounded-xl overflow-hidden bg-slate-900 group shadow-inner">
+<img alt="Fairchild 670 Vintage Tube Limiter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 animate-tube" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPChDX-sxdh0K8Q22oNAT47rNJQObXT_QNwd95IJzG1eXqoJCDozaRgCjEfmfActi9F4s6q_z4gQidODEC9dnYKwslZZUKEMj6cGavXSahM39eqOOyUxA4VF0Y7xShcZJJkFzOKMnIaQI4WM_J9VD_2GDKxk31LmDG_BQIcxDCdD8pDl62aAXJHcvahM-xe2K9XTr7O5pn3Oi1cFeRU2rRCxjluyAbcwcgbDCCYd6BUYINsaJz2m4y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-space-sm py-1 rounded-lg shadow">
+<span class="font-title-md text-body-sm font-bold text-on-surface">Fairchild 670 Mastering Compressor</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+  Unrivaled density and 3-dimensional stereo bloom. Delivers the legendary silky glue heard on definitive Abbey Road and Motown archival masters.
+</p>
+</div>
+<!-- Sub Row: 1176 Limiting Amp, Maag EQ4 Air Band, Pultec Tube Equalizer -->
+<!-- Gear 3: 1176 Limiter -->
+<div class="md:col-span-4 backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-md shadow-md hover:shadow-xl transition-all flex flex-col gap-space-sm">
+<div class="relative w-full h-40 rounded-xl overflow-hidden bg-slate-900 group">
+<img alt="Universal Audio 1176 Limiting Amplifier" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqtVJzrhFwhWXzfDRI9rb0E0z2f4LjGy7d5KNtz8vEKXOvFCM68yCLao5XulfMTHrU-19j-C6spOPahIRbIaETJrQceVGZpT0XzFZnl2epUJ9ZeWnCem0MNzJO-YgIP13NfYq2HtDiEzKGUW9aMwLQqtT87eRZ-MENPXPygaVAlV3_xz1-Tvu831eGf3_boefHYjbVcIsJ7w_5hOgKx9WOyrV1oQpbepqThkCyzVPpqaK7GXijXIAi"/>
+<div class="absolute bottom-2 left-2 bg-white/90 backdrop-blur-md px-space-sm py-0.5 rounded-md shadow">
+<span class="font-label-telemetry text-label-telemetry font-bold text-on-surface">1176 FET LIMITER REV D</span>
+</div>
+</div>
+<div>
+<span class="font-title-md text-body-sm font-bold text-on-surface block">Ultra-Fast Discrete Peak Control</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">20-microsecond attack for microscopic transient preservation.</span>
+</div>
+</div>
+<!-- Gear 4: Maag EQ4 Air Band -->
+<div class="md:col-span-4 backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-md shadow-md hover:shadow-xl transition-all flex flex-col gap-space-sm">
+<div class="relative w-full h-40 rounded-xl overflow-hidden bg-slate-900 group">
+<img alt="Maag EQ4 Mastering Equalizer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgFD_o5-doHISYnOpdSrtN2F_d6uWKD94CIxL1Alv3Z5O8NcR4BSFED8gs3EiH0SOv77fWgb3hY3TaAXuWhSLBUFNUuGc7D21Sk-HxPDFMSGQI1LcyBl2TEIbQ4b3gs2WYWWQvXhRQXPa8bgy3h6JXyQAaIrBlGb8NtNdnGtDJAIDdnHj-rioUMuk5dQo1jEPEif6hXD5kJcst14KlJr1_NF0n0ZKOm6pjWILAl4ti2AR3MCvFAHpA"/>
+<div class="absolute bottom-2 left-2 bg-white/90 backdrop-blur-md px-space-sm py-0.5 rounded-md shadow">
+<span class="font-label-telemetry text-label-telemetry font-bold text-on-surface">MÄAG AUDIO EQ4M</span>
+</div>
+</div>
+<div>
+<span class="font-title-md text-body-sm font-bold text-on-surface block">40kHz Proprietary Air Band™</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Adds effortless top-end openness without a shred of digital harshness.</span>
+</div>
+</div>
+<!-- Gear 5: Pultec EQP-1A Tube EQ -->
+<div class="md:col-span-4 backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-md shadow-md hover:shadow-xl transition-all flex flex-col gap-space-sm">
+<div class="relative w-full h-40 rounded-xl overflow-hidden bg-slate-900 group">
+<img alt="Pultec EQP-1A Tube Mastering Equalizer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-qF57UCKLPcU0ITcs9TKA4n-iZhAa0nMYQM-ZjEdJSo4MVO-RdVQQBwjiXKKiQd_faKjhjDQIYrAeYWTRcHYqmIohOaW254Bb-ED5Vj_npS8SUiF0bN35qI_PrW50ZdF9CmRP8vO1AtbYE6WJoYd1ULMsVdUCgodMLwQ-vK9O6et4fSJQfIQvMXCSm1JrmHV7QSWSe6A8pVofUBFdBJY5CJ8ZiapqE53IjsLcTnukWP010v0tVul1"/>
+<div class="absolute bottom-2 left-2 bg-white/90 backdrop-blur-md px-space-sm py-0.5 rounded-md shadow">
+<span class="font-label-telemetry text-label-telemetry font-bold text-on-surface">PULTEC EQP-1A DUAL TUBE</span>
+</div>
+</div>
+<div>
+<span class="font-title-md text-body-sm font-bold text-on-surface block">Sub-Bass Inductor Weight</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Simultaneous boost-and-attenuate circuit at 30Hz for authoritative low punch.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: DOLBY ATMOS 9.1.6 & DTS:X SPATIAL SUITE PREVIEW -->
+<section class="flex flex-col gap-space-lg" id="suite-916">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-telemetry text-label-telemetry text-primary uppercase font-bold tracking-widest">// ARCHITECTURAL ACOUSTICS</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">THE 9.1.6 DOLBY ATMOS SUITE</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+  Engineered from ground up with floating decoupled concrete slabs, non-parallel diffuse boundaries, and full-range ATC active monitoring across 16 discrete channels.
+</p>
+</div>
+<div class="flex items-center gap-space-xs font-label-telemetry text-label-telemetry px-space-md py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-bold shadow-sm">
+<span class="material-symbols-outlined text-[16px] animate-spin" style="animation-duration: 12s;">spatial_audio</span>
+<span>CALIBRATED TO DOLBY ATMOS CURVE D</span>
+</div>
+</div>
+<!-- Immersive Suite Hero Card with Spatial Radar Animation -->
+<div class="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800">
+<div class="relative w-full h-[540px]">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1VL6xm11CZ-BKec7RY0fMSr48t-91E9RL_dSTaKsQI8ZownQqK9bVpLSXzr4-EiqnIg_KVk4JHAh9ml5gnRr5gIcSENYBsxQviJfCeOB2HXMPDMkzpwyV6bysZXOlTfJYF5gN4tRcPP7xqFM3VOo-TADHZjJu1jRAgoIGajUY7tgPsGtOX4Im0KRT5x8IJ12DWCcmTMCVyz73V7MlnYj5kw787Q0nIeXvjlmFwCr0ud')"></div>
+<!-- Intoxicated Cloudy Deep Blue Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#001428]/95 via-[#001428]/40 to-transparent"></div>
+<!-- Top Telemetry HUD -->
+<div class="absolute top-6 left-6 right-6 flex flex-wrap items-center justify-between gap-space-sm pointer-events-none">
+<div class="flex items-center gap-2 bg-white/90 backdrop-blur-md px-space-md py-1.5 rounded-full text-on-surface shadow-md">
+<span class="h-2 w-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-telemetry text-label-telemetry uppercase font-bold">ROOM RT60: 0.18s FLAT</span>
+</div>
+<!-- 3D Spatial Radar Sweep Visualizer Indicator -->
+<div class="flex items-center gap-space-sm bg-[#001428]/90 border border-cyan-500/30 backdrop-blur-md px-space-md py-1.5 rounded-full text-cyan-200 shadow-md">
+<div class="relative w-4 h-4 rounded-full border border-cyan-400 flex items-center justify-center">
+<div class="w-full h-0.5 bg-cyan-400 animate-radar"></div>
+</div>
+<span class="font-label-telemetry text-label-telemetry uppercase">16 CHANNELS PHASE-COHERENT (20Hz - 40kHz ±0.8dB)</span>
+</div>
+</div>
+<!-- Spatial Control Console Floor Panel -->
+<div class="absolute bottom-6 left-6 right-6 backdrop-blur-xl bg-white/90 border border-white/95 p-space-lg rounded-2xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-space-lg text-on-surface">
+<div class="flex flex-col gap-1 max-w-xl">
+<span class="font-title-lg text-title-lg font-bold text-on-surface uppercase">Certified Apple Digital Masters &amp; ADM BWF Facility</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+  Every immersive release undergoes multi-device binaural validation: tested on Apple AirPods Max Spatial Audio, Sony WH-1000XM5 360RA, and dedicated reference ATC monitors.
+</p>
+</div>
+<!-- Spatial 16-Channel Coordinates Matrix -->
+<div class="grid grid-cols-4 gap-2 text-center w-full lg:w-auto">
+<div class="px-space-sm py-2 rounded-xl bg-slate-100/90 border border-slate-200">
+<span class="font-label-sm text-label-sm text-on-surface-variant block font-bold">L / C / R</span>
+<span class="font-title-md text-body-sm font-bold text-primary">3x ATC SCM110</span>
+</div>
+<div class="px-space-sm py-2 rounded-xl bg-slate-100/90 border border-slate-200">
+<span class="font-label-sm text-label-sm text-on-surface-variant block font-bold">SURROUNDS</span>
+<span class="font-title-md text-body-sm font-bold text-secondary">6x ATC SCM45</span>
+</div>
+<div class="px-space-sm py-2 rounded-xl bg-slate-100/90 border border-slate-200">
+<span class="font-label-sm text-label-sm text-on-surface-variant block font-bold">HEIGHTS</span>
+<span class="font-title-md text-body-sm font-bold text-secondary">6x ATC SCM25</span>
+</div>
+<div class="px-space-sm py-2 rounded-xl bg-slate-100/90 border border-slate-200">
+<span class="font-label-sm text-label-sm text-on-surface-variant block font-bold">LFE SUB</span>
+<span class="font-title-md text-body-sm font-bold text-primary">2x ATC Sub15</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: OPEN-MINDED ETHOS & BESPOKE SESSION COMMISSIONS (NO NUMERICAL PRICING) -->
+<section class="flex flex-col gap-space-xl" id="session-commissions">
+<div class="backdrop-blur-md bg-white/85 border border-white/90 rounded-3xl p-space-2xl shadow-[0_24px_60px_-12px_rgba(0,20,40,0.12)] flex flex-col gap-space-2xl">
+<!-- Ethos Statement -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<span class="font-label-telemetry text-label-telemetry text-primary font-bold uppercase tracking-widest">// THE WELCOMING ATELIER ETHOS</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight leading-tight">
+  OPEN TO ALL SOUNDS, TRADITIONS &amp; CREATORS.
+</h2>
+<div class="h-1.5 w-24 bg-gradient-to-r from-primary-container to-amber-400 rounded-full"></div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-space-md font-body-md text-body-md text-on-surface-variant">
+<p class="leading-relaxed">
+  Sound is universal divine vibration. Whether you are preserving an ancient, unamplified Sanskrit Vedic kirtan chant, tracking an exploratory free-jazz trio, finishing a festival-dominating Afro-house anthem, or mixing a 120-track Hollywood orchestral score, B-SAF treats your art with reverent acoustic dedication.
+</p>
+<p class="leading-relaxed">
+  We reject elitist gatekeeping. We welcome independent DIY artists, spiritual collectives, and major recording labels alike with clear upfront collaboration, dedicated stem evaluation, and guaranteed delivery times.
+</p>
+</div>
+</div>
+<!-- Commission Tiers (NO NUMERICAL CURRENCY AMOUNTS AS REQUESTED) -->
+<div class="flex flex-col gap-space-lg pt-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md bg-slate-100/90 border border-slate-200/80 p-space-md rounded-2xl shadow-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[28px] animate-pulse">tune</span>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">Atelier Mastering Commissions &amp; Stem Evaluation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct engineer appraisal, confidential listening review &amp; multi-channel booking</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<a class="px-space-md py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-telemetry text-label-telemetry font-bold hover:bg-primary hover:text-white transition-all shadow-sm flex items-center gap-1" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">send</span> Telegram VIP Desk
+  </a>
+<a class="px-space-md py-1.5 rounded-full bg-white border border-slate-300 text-on-surface font-label-telemetry text-label-telemetry font-bold hover:bg-slate-50 transition-all shadow-sm flex items-center gap-1" href="tel:+18007664254">
+<span class="material-symbols-outlined text-[16px] text-primary">call</span> WhatsApp Direct
+  </a>
+</div>
+</div>
+<!-- Commission Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Tier 1: Stereo Analog Master Commission -->
+<div class="bg-white/90 border border-slate-200/80 rounded-2xl p-space-lg flex flex-col justify-between gap-space-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-telemetry text-label-telemetry text-primary font-bold uppercase">STEREO ANALOG PASS</span>
+<span class="px-space-sm py-0.5 rounded-full bg-slate-100 text-on-surface font-label-sm text-label-sm font-bold">SINGLE TRACK</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Custom Mastering Commission</span>
+</div>
+<span class="font-label-telemetry text-label-telemetry text-secondary block mt-1">48-Hour Dedicated Turnaround • 2 Revisions</span>
+</div>
+<ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Studer A820 tape color pass</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Fairchild / Pultec hardware EQ</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Apple Digital Masters Hi-Res WAV</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Optimized streaming + vinyl premaster</li>
+</ul>
+</div>
+<a class="w-full py-space-sm rounded-full bg-slate-100 hover:bg-primary hover:text-white text-on-surface font-title-md text-body-sm text-center font-bold transition-all shadow-sm" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank">
+  Request Inquiry &amp; Stem Review
+</a>
+</div>
+<!-- Tier 2: Stem Mastering (Featured) -->
+<div class="bg-white/95 rounded-2xl p-space-lg flex flex-col justify-between gap-space-lg shadow-2xl relative ring-2 ring-primary-container hover:-translate-y-1 transition-all">
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-space-md py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-telemetry text-label-telemetry uppercase font-bold shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span> MOST REQUESTED ATELIER SUITE
+</div>
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-telemetry text-label-telemetry text-primary font-bold uppercase">STEM MASTERING (UP TO 8 STEMS)</span>
+<span class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold">DEEP COHERENCE</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Bespoke Project Evaluation</span>
+</div>
+<span class="font-label-telemetry text-label-telemetry text-secondary block mt-1">72-Hour Turnaround • Unlimited Tweaks</span>
+</div>
+<ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Up to 8 discrete stereo stems</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Sub-bass vs kick phase locking</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Surgical vocal de-essing &amp; Air Band</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Full analog outboard bus processing</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>Instrumental + TV master stems included</li>
+</ul>
+</div>
+<a class="w-full py-space-sm rounded-full bg-primary-container text-on-primary-container hover:bg-primary hover:text-white font-title-md text-body-sm text-center font-bold shadow-[0_8px_20px_rgba(255,122,0,0.35)] transition-all" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank">
+  Contact Engineer for Custom Quote
+</a>
+</div>
+<!-- Tier 3: Dolby Atmos 9.1.6 Spatial Master -->
+<div class="bg-white/90 border border-slate-200/80 rounded-2xl p-space-lg flex flex-col justify-between gap-space-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold uppercase">DOLBY ATMOS 9.1.6 ADM</span>
+<span class="px-space-sm py-0.5 rounded-full bg-slate-100 text-on-surface font-label-sm text-label-sm font-bold">IMMERSIVE SUITE</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Per-Movement Commission via Telegram</span>
+</div>
+<span class="font-label-telemetry text-label-telemetry text-secondary block mt-1">5-Day Turnaround • Spatial Stems Included</span>
+</div>
+<ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>Full 9.1.6 ADM BWF Master deliverable</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>Apple Spatial Audio QC compliance</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>Binaural headphone rendering &amp; tuning</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>Stereo companion master included</li>
+</ul>
+</div>
+<a class="w-full py-space-sm rounded-full bg-slate-100 hover:bg-secondary hover:text-white text-on-surface font-title-md text-body-sm text-center font-bold transition-all shadow-sm" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank">
+  Commission Spatial Suite
+</a>
+</div>
+</div>
+<!-- Direct Payment Gateways Info Strip -->
+<div class="flex flex-wrap items-center justify-center gap-space-lg pt-space-md text-on-surface-variant font-label-telemetry text-label-telemetry">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary">credit_card</span>Stripe 1-Click Invoice</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">payments</span>PayPal Direct Atelier</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-on-surface">account_balance</span>SWIFT &amp; IBAN Wire Settlement</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-primary-container">currency_bitcoin</span>USDC / USDT Web3 Instant Transfer</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: GOOGLE AI STUDIO CONFIGURATOR SCHEMA & AUDIO LEXICON -->
+<section class="flex flex-col gap-space-lg pb-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left: Google AI Studio API Configurator Box (5 Cols) -->
+<div class="lg:col-span-5 backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-lg shadow-lg flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-telemetry text-label-telemetry text-primary uppercase font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">terminal</span> GOOGLE AI STUDIO CONFIG SCHEMA
+</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-bold">API READY</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+Seamlessly pipe automated stem analysis, peak loudness telemetry, and dynamic stem classification via Google AI Studio API backend.
+</p>
+</div>
+<!-- Code Box -->
+<div class="w-full bg-slate-900 rounded-xl p-space-md overflow-x-auto text-slate-100 font-mono text-label-sm shadow-inner border border-slate-800">
+<pre class="leading-relaxed"><code>{
+  <span class="text-cyan-400">"atelier_id"</span>: <span class="text-amber-400">"BSAF_MASTERING_916"</span>,
+  <span class="text-cyan-400">"session_specs"</span>: {
+    <span class="text-cyan-400">"delivery_format"</span>: <span class="text-amber-400">"ADM_BWF_9_1_6"</span>,
+    <span class="text-cyan-400">"integrated_lufs"</span>: -14.0,
+    <span class="text-cyan-400">"true_peak_max_dbfs"</span>: -0.1,
+    <span class="text-cyan-400">"sample_rate_hz"</span>: 96000,
+    <span class="text-cyan-400">"bit_depth"</span>: 24,
+    <span class="text-cyan-400">"analog_tape_pass"</span>: <span class="text-primary-container font-bold">true</span>,
+    <span class="text-cyan-400">"tape_speed_ips"</span>: 30
+  },
+  <span class="text-cyan-400">"dispatch_channels"</span>: [
+    <span class="text-amber-400">"telegram:@SonicMastering"</span>,
+    <span class="text-amber-400">"discord:SonicAtelier#916"</span>
+  ]
+}</code></pre>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-telemetry text-label-telemetry text-secondary font-bold">JSON SCHEMA v2.4</span>
+<button class="font-title-md text-body-sm text-primary flex items-center gap-1 hover:underline font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Copy API Payload
+</button>
+</div>
+</div>
+<!-- Right: Extensive SEO & Engineering Lexicon (7 Cols) -->
+<div class="lg:col-span-7 backdrop-blur-md bg-white/85 border border-white/90 rounded-2xl p-space-lg shadow-lg flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-telemetry text-label-telemetry text-secondary uppercase font-bold">// ACOUSTIC TAXONOMY &amp; SEARCH INDEX</span>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold uppercase">AUDIO ENGINEERING LEXICON</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+Every master produced at B-SAF adheres strictly to international broadcast specifications, physical vinyl disc-cutting limits, and pristine uncompressed spatial audio standards.
+</p>
+</div>
+<!-- Badges & Chips Cloud -->
+<div class="flex flex-wrap gap-2 pt-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">DOLBY ATMOS ADM BWF</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">EBU R128 NORMALIZATION</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">ITU-R BS.1770-4 TRUE PEAK</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">FAIRCHILD 670 VARIABLE-MU</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">STUDER A820 1/2" TAPE</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">PULTEC EQP-1A INDUCTOR EQ</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">MÄAG AUDIO 40KHZ AIR BAND</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">DSD 11.2MHZ 1-BIT MASTERING</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">APPLE DIGITAL MASTERS (ADM)</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">VINYL LACQUER PRE-MASTERING</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">SONY 360 REALITY AUDIO</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">CRANE SONG QUANTUM D/A</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">BINAURAL HRTF TRANSLATION</span>
+<span class="px-space-sm py-1 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-on-surface font-label-telemetry text-label-telemetry font-semibold">DDP 2.0 PROTOCOL VERIFICATION</span>
+</div>
+<div class="flex items-center justify-between pt-space-sm border-t border-slate-200/80">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ready to elevate your mix with world-class analog warmth and spatial expansion?</span>
+<a class="font-title-md text-body-sm text-primary font-bold hover:underline flex items-center gap-1" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank">
+  Contact Engineer Direct <span class="material-symbols-outlined text-[16px]">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="w-full backdrop-blur-xl bg-white/85 border-t border-white/60 shadow-[0_-1px_16px_rgba(0,20,40,0.04)] relative z-20"><div class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin py-space-2xl"><div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl pb-space-xl"><div class="lg:col-span-5 flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight uppercase font-bold">B-SAF // SONIC ATELIER</span><span class="h-2.5 w-2.5 rounded-full bg-primary-container animate-ping"></span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-xl leading-relaxed">World-class precision spatial and analog mastering atelier. Certified Apple Digital Masters studio and Dolby Atmos 9.1.6 facility dedicated to acoustic transparency, micro-dynamic integrity, and absolute emotional impact for visionaries across cinema, high-resolution streaming, and archival vinyl pressings.</p><div class="flex flex-wrap items-center gap-space-xs pt-space-xs"><span class="px-space-sm py-1 rounded-full bg-slate-100 text-on-surface font-label-telemetry text-label-telemetry uppercase font-bold"><span class="material-symbols-outlined text-[14px] text-primary align-middle mr-1">verified</span>Apple Digital Masters Certified</span><span class="px-space-sm py-1 rounded-full bg-slate-100 text-on-surface font-label-telemetry text-label-telemetry uppercase font-bold"><span class="material-symbols-outlined text-[14px] text-tertiary align-middle mr-1">spatial_audio</span>Dolby Atmos 9.1.6 Studio</span><span class="px-space-sm py-1 rounded-full bg-slate-100 text-on-surface font-label-telemetry text-label-telemetry uppercase font-bold"><span class="material-symbols-outlined text-[14px] text-secondary align-middle mr-1">graphic_eq</span>DSD &amp; DXD 384kHz Pristine Stems</span></div><div class="flex items-center gap-space-xs pt-space-sm"><a class="p-space-xs rounded-full bg-white text-on-surface-variant hover:text-white hover:bg-primary transition-all shadow-sm" href="https://t.me/SonicMastering" rel="noopener noreferrer" target="_blank" title="Telegram Atelier"><span class="material-symbols-outlined text-[20px]">send</span></a><a class="p-space-xs rounded-full bg-white text-on-surface-variant hover:text-white hover:bg-primary transition-all shadow-sm" href="tel:+18007664254" title="WhatsApp Direct Audio"><span class="material-symbols-outlined text-[20px]">call</span></a><a class="p-space-xs rounded-full bg-white text-on-surface-variant hover:text-white hover:bg-primary transition-all shadow-sm" href="#" title="Discord Master Community"><span class="material-symbols-outlined text-[20px]">headset_mic</span></a><a class="p-space-xs rounded-full bg-white text-on-surface-variant hover:text-white hover:bg-primary transition-all shadow-sm" href="#" title="YouTube Stems &amp; Sessions"><span class="material-symbols-outlined text-[20px]">smart_display</span></a><a class="p-space-xs rounded-full bg-white text-on-surface-variant hover:text-white hover:bg-primary transition-all shadow-sm" href="#" title="GitHub DSP Tools"><span class="material-symbols-outlined text-[20px]">terminal</span></a></div></div><div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-space-lg"><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface tracking-tight uppercase font-bold">Spatial &amp; Immersive</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors cursor-pointer">Dolby Atmos 9.1.6 ADM BWF</li><li class="hover:text-primary transition-colors cursor-pointer">Sony 360 Reality Audio</li><li class="hover:text-primary transition-colors cursor-pointer">Binaural Spatial Calibration</li><li class="hover:text-primary transition-colors cursor-pointer">Apple Spatial Audio Validation</li><li class="hover:text-primary transition-colors cursor-pointer">Multichannel LFE Coherence</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface tracking-tight uppercase font-bold">Analog Transfer Rack</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors cursor-pointer">Studer A820 1/2-Inch Master Tape</li><li class="hover:text-primary transition-colors cursor-pointer">Fairchild 670 Tube Limiter</li><li class="hover:text-primary transition-colors cursor-pointer">Manley Massive Passive Mastering EQ</li><li class="hover:text-primary transition-colors cursor-pointer">Crane Song HEDD Quantum D/A</li><li class="hover:text-primary transition-colors cursor-pointer">Weiss DS1-MK3 Linear Phase</li></ul></div><div class="flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-on-surface tracking-tight uppercase font-bold">Engineering Indexes</span><ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors cursor-pointer">LUFS &amp; True Peak Calibration</li><li class="hover:text-primary transition-colors cursor-pointer">DDP Protocol for Vinyl Pressing</li><li class="hover:text-primary transition-colors cursor-pointer">Stem Mastering Phase Alignment</li><li class="hover:text-primary transition-colors cursor-pointer">Audiophile Hi-Res MQA &amp; DSD</li><li class="hover:text-primary transition-colors cursor-pointer">Studio Acoustic IR Impulse Data</li></ul></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md border-t border-slate-200/60"><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 B-SAF / Sonic Atelier. Precision Spatial Mastering &amp; Acoustic Engineering Laboratories. All rights reserved worldwide.</div><div class="flex items-center gap-space-md font-label-telemetry text-label-telemetry text-on-surface-variant uppercase"><span class="flex items-center gap-1"><span class="h-1.5 w-1.5 rounded-full bg-primary-container"></span>AES Member Atelier</span><span>Room RT60: 0.18s @ 1kHz</span><span>Calibrated 85 dBC SPL Reference</span></div></div></div></footer></body></html>
